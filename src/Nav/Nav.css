@@ -1,0 +1,31 @@
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position:sticky;
+    top:0;
+    height:60px;
+    padding: 0 1rem;
+    background-color:black;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    font-size:1.1rem;
+    z-index:10000;
+}
+
+.nav-bar a{
+    text-decoration:none;
+    color:currentColor;
+}
+
+.logo{
+    display: inline-block;
+    width:max-content;
+    flex-shrink: 0;
+}
+
+.nav-links > span + span{
+    display:inline-block;
+    width:max-content;
+    margin-left:4rem;
+}
