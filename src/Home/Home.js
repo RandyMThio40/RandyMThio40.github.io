@@ -46,7 +46,7 @@ export default function Home(){
         tes.append('message',"clientside")
         axios({
             method:"post",
-            url:"http://localhost:4300/api/test.php",
+            url:"https://randymthio40.github.io/my-portfolio/api/test.php",
             data:tes,
             headers: { "Content-Type": "text/html; charset=UTF-8" },
         })
@@ -65,7 +65,7 @@ export default function Home(){
 
         axios({
             method:"post",
-            url:"http://localhost:4300/api/test.php",
+            url:"https://randymthio40.github.io/my-portfolio/api/test.php",
             data:tes,
             headers: { "Content-Type": "text/html; charset=UTF-8" },
         })
