@@ -1,12 +1,12 @@
 import React,{useState,useEffect,useRef,useReducer} from 'react';
 import './Home.css';
-
+import axios, { Axios } from 'axios';
 
 
 export default function Home(){
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
-
+    const [message,setMessage] = useState("");
 
     const form_type ={
         Name:"name",
@@ -37,6 +37,50 @@ export default function Home(){
     const handleEmail = (e) => {
         handleChange(e,"email");
     }
+
+    const getData = async() => {
+        // const res = await fetch("http://localhost:4300/api/test.php");
+        // const data = await res.text();
+        // console.log("getData()",data);
+        const tes = new FormData();
+        tes.append('message',"clientside")
+        axios({
+            method:"post",
+            url:"http://localhost:4300/api/test.php",
+            data:tes,
+            headers: { "Content-Type": "text/html; charset=UTF-8" },
+        })
+        .then(res => console.log(res,tes.get('message')))
+        .catch(err => console.log(err));
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let tes = new FormData();
+        tes.append('name',name)
+        tes.append('email',email)
+        tes.append('message',message)
+
+
+        axios({
+            method:"post",
+            url:"http://localhost:4300/api/test.php",
+            data:tes,
+            headers: { "Content-Type": "text/html; charset=UTF-8" },
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+        setEmail("");
+        setName("");
+        setMessage("");
+    }
+    useEffect(()=>{
+        getData()
+        
+    },[])
+
+
 
 
     return(
@@ -97,19 +141,19 @@ export default function Home(){
                         </p>
                         <span className="closing-tag">p</span>
                     </div>
-                    <form className="send-email-form" >
+                    <form action="../../api/test.php/" method="POST" className="send-email-form" onSubmit={handleSubmit}>
                         <h3 className="opening-tag">form</h3>
                         <div className="input-container" >
-                            <input type="text" id="name" onChange={handleName} value={name} required />
+                            <input name="name" type="text" id="name" onChange={handleName} value={name} required />
                             <label htmlFor="name" >name</label>
                             <div className="label-bg">name</div>
                         </div>
                         <div className="input-container">
-                            <input type="email" id="email" onChange={handleEmail} required />
-                            <label htmlFor="name" >email</label>
+                            <input type="email" id="email" name="email" onChange={handleEmail} value={email} required />
+                            <label htmlFor="email" >email</label>
                             <div className="label-bg">email</div>
                         </div>
-                        <textarea id="message-input" name="message-input" placeholder="leave me a message..." rows="9"/>
+                        <textarea id="message-input" name="body" placeholder="leave me a message..." rows="9" value={message} onChange={(e)=>setMessage(e.target.value)} />
                         <div className="closed-tag submit-butt"><input type="submit" id="submit-form" /></div>
                         <h3 className="closing-tag">form</h3>
                     </form>
