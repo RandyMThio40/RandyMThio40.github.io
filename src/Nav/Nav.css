@@ -1,16 +1,21 @@
 .nav-bar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position:sticky;
     top:0;
-    height:60px;
-    padding: 0 1rem;
     background-color:black;
     color:white;
     font-family: 'Roboto', sans-serif;
     font-size:1.1rem;
     z-index:10000;
+}
+
+.nav-bar-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width:1440px;
+    height:60px;
+    padding: 0 1rem;
+    margin:auto;
 }
 
 .nav-bar a{

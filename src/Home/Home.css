@@ -1,10 +1,11 @@
 :root{
-    --fs-reg-tag:1.5rem;
-    --fs-custom-tag:1.8rem;
+    --sec-header2-ani-dur:6s;
+    
+    --fs-reg-tag:1.7rem;
+    --fs-custom-tag:2rem;
     --fs-header1-tag:3rem;
     --fs-header2-tag:2.3rem;
-    --sec-header2-ani-dur:6s;
-    --fs-form:1.2rem;
+    --fs-form:1.4rem;
 
 
     --bg-header-tag:#039E00;
@@ -20,6 +21,7 @@
 }
 
 @keyframes titles{
+    0%{content:""}
     4%{content:"f"}
     8%{content:"fr"}
     12%{content:"fro"}
@@ -50,9 +52,130 @@
     }
 }
 
+@keyframes blink2{
+    79%,86%,95%{
+        opacity:0;
+    }
+    78%,82%,90%,100%{
+        opacity: 1;
+    }
+}
+
+@keyframes ui{
+    0%{content:""}
+    6%{content:"U"}
+    12%{content:"Us"}
+    18%{content:"Use"}
+    24%{content:"User"}
+    30%{content:"UserI"}
+    36%{content:"UserIn"}
+    42%{content:"UserInt"}
+    48%{content:"UserInte"}
+    54%{content:"UserInter"}
+    60%{content:"UserInterf"}
+    66%{content:"UserInterfa"}
+    72%{content:"UserInterfac"}
+    78%{content:"UserInterface"}
+    100%{content:"UserInterface"}
+}
+
+
+@keyframes ux{
+    0%{content:""}
+    5%{content:"U"}
+    10%{content:"Us"}
+    15%{content:"Use"}
+    20%{content:"User"}
+    25%{content:"UserE"}
+    30%{content:"UserEx"}
+    35%{content:"UserExp"}
+    40%{content:"UserExpe"}
+    45%{content:"UserExper"}
+    50%{content:"UserExperi"}
+    55%{content:"UserExperie"}
+    60%{content:"UserExperien"}
+    65%{content:"UserExperienc"}
+    70%{content:"UserExperience"}
+    100%{content:"UserExperience"}
+}
+
+@keyframes safari_titles{
+    0%{width:17ch}
+    5%{width:16ch}
+    10%{width:15ch}
+    15%{width:14ch}
+    20%{width:13ch}
+    25%{width:12ch}
+    30%{width:11ch}
+    35%{width:10ch}
+    40%{width:9ch}
+    45%{width:8ch}
+    50%{width:7ch}
+    55%{width:6ch}
+    60%{width:5ch}
+    65%{width:4ch}
+    70%{width:3ch}
+    75%{width:2ch}
+    80%{width:1ch}
+    85%{width:0ch}
+    100%{width:0ch}
+}
+
+@keyframes safari_ui{
+    0%{width:13ch}
+    8%{width:12ch}
+    16%{width:11ch}
+    24%{width:10ch}
+    32%{width:9ch}
+    40%{width:8ch}
+    48%{width:7ch}
+    56%{width:6ch}
+    64%{width:5ch}
+    72%{width:4ch}
+    80%{width:3ch}
+    88%{width:2ch}
+    92%{width:1ch}
+    99%{width:0ch}
+    100%{width:0ch}
+}
+
+@keyframes safari_ux{
+    0%{width:14ch}
+    7%{width:13ch}
+    14%{width:12ch}
+    21%{width:11ch}
+    28%{width:10ch}
+    35%{width:9ch}
+    42%{width:8ch}
+    49%{width:7ch}
+    56%{width:6ch}
+    63%{width:5ch}
+    70%{width:4ch}
+    77%{width:3ch}
+    84%{width:2ch}
+    91%{width:1ch}
+    98%{width:0ch}
+    100%{width:0ch}
+}
+
+.notification{
+    position:fixed;
+    top:65px;
+    left:50%;
+    width:max-content;
+    background-color:beige;
+    color:black;
+    padding:0.3rem 0.5rem;
+    border-radius:1rem;
+
+    transform:translate(-50%);
+    z-index: 100;
+}
 
 .home-page-container{
+    max-width:1440px;
     height:max-content;
+    margin:auto;
 }
 
 .hero-landing{
@@ -62,10 +185,62 @@
     height:max(calc(100vh - 60px),600px);
     background-color:white;
 }
+/* //////////////////////////    hero Background images     ////////////////////////////*/
+.symbol-bg{
+    position:absolute;
+    user-select: none;
+}
+
+#code_symbol{
+    left:-40px;
+}
+
+#javascript_symbol{
+    top:10px;
+    right:20px;
+}
+
+#typescript_symbol{
+    top:230px;
+    right:300px;
+}
+
+#figma_symbol{
+    right:50px;
+    top:300px;
+}
+
+#html_symbol{
+    top:380px;
+    right:280px;
+}
+
+#SCSS_symbol{
+    top:540px;
+    right:200px;
+}
+
+#css_symbol{
+    top:560px;
+    left:48%;
+}
+
+#react_symbol{
+    top:80%;
+    left:30px;
+}
+
+/* //////////////////////////    hero content     ////////////////////////////*/
 
 .title-name{
     font-weight:lighter;
 }
+                                /* tags set-up section */
+
+
+.custom-tag{
+    font-size:var(--fs-custom-tag);
+}   
 
 .opening-tag,
 .closing-tag{
@@ -81,19 +256,19 @@
 }
 
 .opening-tag::before{
-    content:"<"
+    content:"<";
 }
 
 .opening-tag::after{
-    content:">"
+    content:">";
 }
 
 .closing-tag::before{
-    content:"</"
+    content:"</";
 }
 
 .closing-tag::after{
-    content:">"
+    content:">";
 }
 .opening-tag.custom-tag,
 .closing-tag.custom-tag,
@@ -144,14 +319,14 @@
 }
 
 .indent{
-    margin-left:2.5rem;
+    margin-left:3.5rem;
 }
 
 .beg-tag,
 .end-tag{
     font-size:2rem;
 }
-
+                                /* headers for hero */
 .hero-headers{
     margin-bottom:3rem;
 }
@@ -163,28 +338,89 @@
 
 .secondary-title-container{
     font-size: var(--fs-header2-tag);
+    display: flex;
+    flex-wrap: nowrap;
 }
-
-.secondary-title::before{
+                                /* animated header */
+/* .secondary-title::before{
     content:"";
     animation: titles var(--sec-header2-ani-dur) linear infinite alternate;
     text-transform: capitalize;
 }
 
+.secondary-title.alt1::before{
+    animation-name: ui;
+    animation-duration: 7s;
+}   
+
+.secondary-title.alt2::before{
+    animation-name: ux;
+    animation-duration: 7s;
+} */
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.secondary-title::before{
+    content:"FrontEndDeveloper";
+    display: block;
+    animation: safari_titles 6s steps(1,end) infinite alternate-reverse ;
+    overflow: hidden;
+}
+.secondary-title.alt1::before{
+    content:"UserInterface";
+    animation: safari_ui 4.95s steps(1,end) infinite alternate-reverse ;
+}
+.secondary-title.alt2::before{
+    content:"UserExperience";
+    animation: safari_ux 4.62s steps(1,end) infinite alternate-reverse ;
+
+}
 
 .secondary-title::after{
     content:"";
     position: absolute;
+    right:0;
+    top:0;
     height:100%;
     border:1px solid black;
     opacity: 1;
     animation: blink var(--sec-header2-ani-dur) linear infinite alternate;
 }
 
+.secondary-title.alt1::after{
+    animation-name:blink2;
+    animation-duration:6s;
+}
+
+.secondary-title.alt2::after{
+    animation-name: blink2;
+    animation-duration:6s;
+}
+                                    /* safari specific */
+@media(-webkit-animation){
+    .secondary-title::before{
+        display: inline-block;
+        content:"FrontEndDeveloper";
+        animation: safari_titles 6s steps(1,end) infinite alternate-reverse ;
+        overflow:hidden;
+    }
+    .secondary-title.alt1::before{
+        content:"UserInterface";
+        animation: safari_ui 7s steps(1,end) infinite alternate-reverse ;
+    }
+    .secondary-title.alt2::before{
+        content:"UserExperience";
+        animation: safari_ux 7s steps(1,end) infinite alternate-reverse ;
+
+    }
+}
+
+                                    /* links */
 .clickable-links-container{
     width:min-content;
 }
-
 
 .clickable-links-container > *{
     display: inline-block;
@@ -202,9 +438,7 @@
     white-space: nowrap;
 }
 
-.custom-tag{
-    font-size:var(--fs-custom-tag);
-}
+/* //////////////////////////    about section     ////////////////////////////*/
 
 .about-container{
     display:flex;
@@ -213,7 +447,7 @@
 }
 
 .about-me-wrapper{
-    padding:3rem;
+    padding:3rem 0;
     flex-grow:1;
 }
 
@@ -226,6 +460,12 @@
 .about-me-para{
     font-size: var(--fs-reg-tag);
 }
+
+.about-me-para-content{
+
+}
+
+/* //////////////////////////    portfolio section     ////////////////////////////*/
 
 .portfolio-container{
     display:flex;
@@ -252,10 +492,12 @@
 }
 
 .item{
-    width:40rem;
+    width:500px;
     height:25rem;
     background-color:grey;
 }
+
+/* //////////////////////////    contact me section     ////////////////////////////*/
 
 .contact-me-container{
     display:flex;
@@ -278,12 +520,13 @@
     max-width:80%;
 }
 
+/* //////////////////////////    form section     ////////////////////////////*/
+
 .send-email-form{
-    width:300px;
+    width:400px;
     padding:0.8rem 1rem;
     border-radius:1rem;
     background-color:var(--bg-form);
-    font-size: var(--fs-form);
     box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -308,6 +551,7 @@
 .input-container{
     --sec-trans:0.4s;
     width: 92%;
+    font-size: var(--fs-form);
     padding:1.2rem;
     margin: 1rem auto;
 }
@@ -321,10 +565,13 @@
     width:100%;
     height:100%;
     background-color:var(--bg-form) ;
+    font-size:var(--fs-form);
     padding:0 1rem;
     border-radius:0.6rem;
-    border:0.1rem solid #45D1FE;
-    outline: 0.1rem solid #45D1FE;
+    border:0.2rem solid #45D1FE;
+    /* outline: 0.1rem solid #45D1FE; */
+    outline: none;
+
     box-shadow: 0 0 0 30px var(--bg-form) inset !important;
 }
 
@@ -341,12 +588,15 @@
 
 .label-bg{
     position:absolute;
-    top:-0.1rem;
+    /* top:-0.1rem; */
+    top:0.1rem;
+    height:0.4rem;
     color: transparent !important;
     font-size: calc(var(--fs-form) - 0.2rem);
     background:var(--bg-form);
+
     transform-origin: center;
-    transform:translate(0,-50%) scaleX(0);
+    transform:translate(0,50%) scaleX(0);
     transition:transform var(--sec-trans) ease;
     user-select: none;
     pointer-events: none;
@@ -369,7 +619,7 @@
 
 .input-container.active input,
 .input-container input:focus{
-    outline-color: var(--bc-input-focus);
+    /* outline-color: var(--bc-input-focus); */
     border-color: var(--bc-input-focus);
 } 
 
@@ -380,11 +630,13 @@
     padding:0.5rem 1rem;
     border-radius:0.6rem;
     border:2px solid var(--bc-input);
+    font-size: var(--fs-form);
     margin:1rem auto;
     
     resize:none;
 }
 
+#message-input.active,
 #message-input:focus{
     border-color:var(--bc-input-focus);
     outline: var(--bc-input-focus);

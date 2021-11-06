@@ -5,5 +5,7 @@
   overflow-y:scroll;
   background-color:white;
   font-family: Menlo;
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
 }
 
