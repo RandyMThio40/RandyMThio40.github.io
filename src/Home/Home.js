@@ -143,7 +143,6 @@ export default function Home(){
         // console.log(getBrowserName());
         // console.log("userInterface".length)
         // console.log("userExperience".length)
-        console.log(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,process.env.REACT_APP_EMAIL_JS_USER_ID)
 
     },[])
 
