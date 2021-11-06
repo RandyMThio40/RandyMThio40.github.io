@@ -14,7 +14,7 @@ import emailjs from 'emailjs-com';
 
 
 
-init("user_cDTdRsPQ2IQkzhOwHDTDc");
+init(process.env.REACT_APP_EMAIL_JS_USER_ID);
 
 
 export default function Home(){
@@ -96,7 +96,7 @@ export default function Home(){
             message:message,
             reply_to:email
         }
-        emailjs.send('service_7xq3gf4','template_c3lvszh',form_block,'user_cDTdRsPQ2IQkzhOwHDTDc')
+        emailjs.send(process.env.REACT_APP_EMAIL_JS_SERVICE_ID,process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,form_block,process.env.REACT_APP_EMAIL_JS_USER_ID)
         .then(res=>console.log(res.text))
         .catch(err=>console.log(err.text));
 
@@ -140,9 +140,11 @@ export default function Home(){
 
     useEffect(()=>{
         setTimeout(recursiveSetTimeout,12000);
-        console.log(getBrowserName());
-        console.log("userInterface".length)
-        console.log("userExperience".length)
+        // console.log(getBrowserName());
+        // console.log("userInterface".length)
+        // console.log("userExperience".length)
+        console.log(process.env.REACT_APP_EMAIL_JS_SERVICE_ID, process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,process.env.REACT_APP_EMAIL_JS_USER_ID)
+
     },[])
 
     
