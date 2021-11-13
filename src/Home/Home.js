@@ -1,16 +1,17 @@
 import resume from '../resume/Randy\'s_resume.pdf';
-import code_symbol from '../images/code.png';
-import css from '../images/CSS.png';
-import Figma from '../images/Figma.png';
-import HTML from '../images/HTML.png';
-import Javascript from '../images/Javascript.png';
-import React_js from '../images/React_JS.png';
-import SCSS from '../images/SCSS.png';
-import Typrscript from '../images/Typescript.png';
+import code_symbol from '../images/code.svg';
+import css from '../images/CSS.svg';
+import Figma from '../images/Figma.svg';
+import HTML from '../images/HTML.svg';
+import Javascript from '../images/Javascript.svg';
+import React_js from '../images/React_JS.svg';
+import SCSS from '../images/SCSS.svg';
+import Typrscript from '../images/Typescript.svg';
 import React,{useState,useEffect,useRef} from 'react';
 import './Home.css';
 import{ init } from 'emailjs-com';
 import emailjs from 'emailjs-com';
+import { GetTheme } from '../components/useContext/provideTheme';
 
 
 
@@ -23,30 +24,16 @@ export default function Home(){
     const [message,setMessage] = useState("");
     const form = useRef();
     const count = useRef(1);
+    const theme = GetTheme();
 
-    const getBrowserName = () => {
-        let user_agent = navigator.userAgent;
-         
-        if(user_agent.match(/chrome|chromium|crios/i)){
-            return "chrome";
-        }
-        else if(user_agent.match(/firefox|fxios/i)){
-            return "firefox";
-        } 
-        else if(user_agent.match(/safari/i)){
-            return "safari";
-        }
-        else if(user_agent.match(/opr\//i)){
-            return "opera";
-        }
-        else if(user_agent.match(/edg/i)){
-            return "edge";
-        }
-        else{
-            return null;
-        }
-         
-    }
+    useEffect(()=>{
+        console.log("home Theme: " , theme); 
+        // if(theme === "dark"){
+        //     const home_container = document.querySelector(".home-page-container");
+        //     home_container.classList.toggle()
+        // }
+    },[theme])
+
     const form_type ={
         Name:"name",
         Email:"email",
@@ -85,8 +72,6 @@ export default function Home(){
         setMessage(e.target.value);
     }
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(form.current);
@@ -122,6 +107,8 @@ export default function Home(){
             }
             case 1:{
                 element.classList.add("alt1");
+                console.log(document.querySelector(".alt1").style)
+
                 setTimeout(recursiveSetTimeout,9900);
                 break;
             }
@@ -137,22 +124,19 @@ export default function Home(){
         setCounter();
     }
 
-
     useEffect(()=>{
         setTimeout(recursiveSetTimeout,12000);
-        // console.log(getBrowserName());
-        // console.log("userInterface".length)
-        // console.log("userExperience".length)
-
     },[])
-
-    
     
     return(
-        <main className="home-page-container">
+        <main className={`home-page-container ${(theme === "dark")? "dark" : ""}`}>
             <div className="notification"> website is still under development </div>
-            <section className="hero-landing">
-                <img className="symbol-bg" id="code_symbol" src={code_symbol} alt="code_symbole" />
+            <section id="home" className="hero-landing">
+                {/* <img className="symbol-bg" id="code_symbol" src={code_symbol} alt="code_symbole" /> */}
+                <svg className="symbol-bg" id="code_symbol" width="394" height="438" viewBox="0 0 394 438" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.37791 386.225L124.026 335.494L161.588 373.886L-20.9414 437.13L-50.7753 406.638L16.5927 225.69L54.1556 264.082L1.37791 386.225ZM256.24 370.646L227.745 398.526L68.8404 65.1024L97.3356 37.2226L256.24 370.646ZM341.951 51.4609L214.662 105.805L177.717 68.0451L364.121 0.701672L393.955 31.194L322.558 216.083L285.614 178.323L341.951 51.4609Z" fill="black" fill-opacity="0.1"/>
+                </svg>
+
                 <img className="symbol-bg" id="css_symbol" src={css} alt="css.png" />
                 <img className="symbol-bg" id="figma_symbol" src={Figma} alt="figma.png" />
                 <img className="symbol-bg" id="html_symbol" src={HTML} alt="HTML.png" />
@@ -166,14 +150,14 @@ export default function Home(){
                     <h3 className="secondary-title-container closed-tag indent"><span className="secondary-title"/></h3>
                 </div>
                 <div className="clickable-links-container">
-                    <a href="#portfolio" className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr">onClick</span><span className="curly-brackets">View</span></a>
-                    <a href={resume} className="Resume closed-tag indent custom-tag" download>Resume <span className="attr">onClick</span><span className="curly-brackets">Download</span></a>
-                    <a href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr">to</span><span className="curly-brackets">LinkedIn</span> <span className="attr">target</span><span className="parenthesis">_blank</span></a>
-                    <a href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr">to</span><span className="curly-brackets">Github</span> <span className="attr">target</span><span className="parenthesis">_blank</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href="#portfolio" className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr"><button> onClick </button></span><span className="curly-brackets">View</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href={resume} className="Resume closed-tag indent custom-tag" download>Resume <span className="attr"><button>onClick</button></span><span className="curly-brackets">Download</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">LinkedIn</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">Github</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
                 </div>
                 <h3 className="closing-tag custom-tag">Home</h3>
             </section>
-            <section className="about-container">
+            <section id="about" className="about-container">
                 <h3 className="opening-tag custom-tag">About</h3>
                     <div className="about-me-wrapper">
                         <h3 className="about-me-title indent"><span className="opening-tag">h3</span>ABOUT ME<span className="closing-tag">h3</span></h3>
@@ -204,7 +188,7 @@ export default function Home(){
                 </div>
                 <h3 className="closing-tag custom-tag">Portfolio</h3>
             </section>
-            <section className="contact-me-container">
+            <section id="contact-me" className="contact-me-container">
                 <h3 className="opening-tag custom-tag">Contact me</h3>
                 <div className="contact-me-wrapper">
                     <div className="final-message-container">

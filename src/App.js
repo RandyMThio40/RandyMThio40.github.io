@@ -1,12 +1,15 @@
 import './App.css';
 import Home from './Home/Home.js';
 import Nav from './Nav/Nav.js';
+import { GetContext } from './components/useContext/provideTheme';
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <Home/>
+      <GetContext>
+        <Nav/>
+        <Home/>
+      </GetContext>
     </div>
   );
 }

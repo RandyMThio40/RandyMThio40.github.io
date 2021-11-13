@@ -23,10 +23,30 @@
     color:currentColor;
 }
 
+.nav-bar a button{
+    all:inherit;
+
+}
+
+.nav-bar a:focus-within{
+    outline: 2px solid orange;
+
+}
+/* .nav-bar a button:focus{
+    color:red;
+} */
+
 .logo{
     display: inline-block;
     width:max-content;
     flex-shrink: 0;
+    cursor: pointer;
+
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
 }
 
 .nav-links > span + span{
