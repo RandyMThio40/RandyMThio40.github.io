@@ -5,17 +5,30 @@ import ToggleTheme from '../components/toggle/toggle.js';
 
 export default function Nav(){
     const base_url = "/my-portfolio/";
+    useEffect(()=>{
+        let sections = ["home","about","portfolio","contact-me"];
+        let link_list = document.querySelectorAll(".nav-links > span");
+        for(let index in sections){
+            let element = document.getElementById(sections[index]);
+            link_list[index].addEventListener("click",()=>{
+                element.scrollIntoView();
+                element.scrollIntoView(false);
+                element.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"});
+            },false)
+            // console.log(link_list[index], element);
+        }
+    },[])
 
     return(
         <nav className="nav-bar">
             <div className="nav-bar-wrapper">
-                <a tabIndex="1" href={`http://localhost:3000${base_url}`}><button><h1 className="logo">Randy Thio</h1></button></a>
+                <button><h1 className="logo">Randy Thio</h1></button>
 
                 <div className="nav-links" role="tablist">
-                    <span><a tabIndex="1" href={`${base_url}#home`}> <button>Home</button></a></span>
-                    <span><a tabIndex="1" href={`${base_url}#about`}><button>About</button></a></span>
-                    <span><a tabIndex="1" href={`${base_url}#portfolio`}><button>Portfolio</button></a></span>
-                    <span><a tabIndex="1" href={`${base_url}#contact-me`}><button>Contact Me</button></a></span>
+                    <span><button>Home</button></span>
+                    <span><button>About</button></span>
+                    <span><button>Portfolio</button></span>
+                    <span><button>Contact Me</button></span>
                     <ToggleTheme/>
                 </div>
             </div>

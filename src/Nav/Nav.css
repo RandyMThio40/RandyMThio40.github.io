@@ -18,23 +18,19 @@
     margin:auto;
 }
 
-.nav-bar a{
+.nav-bar button{
     text-decoration:none;
     color:currentColor;
+    font-size:inherit;
+    font-family: inherit;
+    background-color:transparent;
+    border:none;
+    cursor: pointer;
 }
 
-.nav-bar a button{
-    all:inherit;
-
-}
-
-.nav-bar a:focus-within{
+.nav-bar button:focus{
     outline: 2px solid orange;
-
 }
-/* .nav-bar a button:focus{
-    color:red;
-} */
 
 .logo{
     display: inline-block;
@@ -53,4 +49,10 @@
     display:inline-block;
     width:max-content;
     margin-left:4rem;
+}
+
+@media screen and (max-width:700px){
+    .nav-links{
+        flex-direction:column;
+    }
 }

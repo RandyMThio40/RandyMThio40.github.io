@@ -3,7 +3,7 @@
   height:100vh;
   overflow-x:hidden;
   overflow-y:scroll;
-  background-color:white;
+  background-color:#1E1E1E;
   font-family: Menlo;
   scroll-behavior: smooth;
   scroll-padding-top: 60px;

@@ -22,29 +22,6 @@
     --bc-input-focus:#00aeff;
 }
 
-@keyframes titles{
-    0%{content:""}
-    4%{content:"f"}
-    8%{content:"fr"}
-    12%{content:"fro"}
-    16%{content:"fron"}
-    20%{content:"front"}
-    24%{content:"frontE"}
-    28%{content:"frontEn"}
-    32%{content:"frontEnd"}
-    36%{content:"frontEnd"}
-    40%{content:"frontEndD"}
-    44%{content:"frontEndDe"}
-    48%{content:"frontEndDev"}
-    52%{content:"frontEndDeve"}
-    56%{content:"frontEndDevel"}
-    60%{content:"frontEndDevelo"}
-    64%{content:"frontEndDevelop"}
-    68%{content:"frontEndDevelope"}
-    72%{content:"frontEndDeveloper"}
-    100%{content:"frontEndDeveloper"}
-}
-
 @keyframes blink{
     72%,88%,100%{
         opacity:0;
@@ -63,43 +40,6 @@
     }
 }
 
-@keyframes ui{
-    0%{content:""}
-    6%{content:"U"}
-    12%{content:"Us"}
-    18%{content:"Use"}
-    24%{content:"User"}
-    30%{content:"UserI"}
-    36%{content:"UserIn"}
-    42%{content:"UserInt"}
-    48%{content:"UserInte"}
-    54%{content:"UserInter"}
-    60%{content:"UserInterf"}
-    66%{content:"UserInterfa"}
-    72%{content:"UserInterfac"}
-    78%{content:"UserInterface"}
-    100%{content:"UserInterface"}
-}
-
-
-@keyframes ux{
-    0%{content:""}
-    5%{content:"U"}
-    10%{content:"Us"}
-    15%{content:"Use"}
-    20%{content:"User"}
-    25%{content:"UserE"}
-    30%{content:"UserEx"}
-    35%{content:"UserExp"}
-    40%{content:"UserExpe"}
-    45%{content:"UserExper"}
-    50%{content:"UserExperi"}
-    55%{content:"UserExperie"}
-    60%{content:"UserExperien"}
-    65%{content:"UserExperienc"}
-    70%{content:"UserExperience"}
-    100%{content:"UserExperience"}
-}
 
 @keyframes safari_titles{
     0%{width:17ch}
@@ -180,6 +120,8 @@
     height:max-content;
     margin:auto;
     background-color:var(--bg-hero-landing);
+
+    overflow: hidden;
 }
 
 .hero-landing{
@@ -189,10 +131,6 @@
     height:max(calc(100vh - 60px),600px);
 }
 
-.hero-landing > svg{
-    /* background-color: black; */
-
-}
 .home-page-container.dark{
     --bg-hero-landing:#121212;
     --bg-header-tag:#1778EB;
@@ -213,17 +151,17 @@
 .symbol-bg{
     position:absolute;
     user-select: none;
-
-}
-
-#code_symbol{
-    left:-40px;
     stroke:var(--bc-stroke);
 }
 
 .symbol-bg > *{
-    fill:var(--bg-fill);
+    fill:var(--bg-fill) ;
 }
+
+#code_symbol{
+    left:-40px;
+}
+
 
 #javascript_symbol{
     top:10px;
@@ -374,21 +312,6 @@
     flex-shrink:0;
 }
                                 /* animated header */
-/* .secondary-title::before{
-    content:"";
-    animation: titles var(--sec-header2-ani-dur) linear infinite alternate;
-    text-transform: capitalize;
-}
-
-.secondary-title.alt1::before{
-    animation-name: ui;
-    animation-duration: 7s;
-}   
-
-.secondary-title.alt2::before{
-    animation-name: ux;
-    animation-duration: 7s;
-} */
 
 ::-webkit-scrollbar{
     display: none;
@@ -503,7 +426,7 @@
 }
 
 .about-me-para-content{
-
+    padding-right:2rem;
 }
 
 /* //////////////////////////    portfolio section     ////////////////////////////*/
@@ -684,4 +607,22 @@
 #message-input:focus{
     border-color:var(--bc-input-focus);
     outline: var(--bc-input-focus);
+}
+
+@media screen and (max-width:700px){
+    :root{
+        --fs-reg-tag:1.2rem;
+        --fs-custom-tag:1.5rem;
+        --fs-header1-tag:2.5rem;
+        --fs-header2-tag:1.8rem;
+        --fs-form:0.9rem;
+    }
+
+    .symbol-bg:nth-child(1){
+        display: initial !important;
+
+    }
+    .symbol-bg:nth-child(N){
+        display: none;
+    }
 }
