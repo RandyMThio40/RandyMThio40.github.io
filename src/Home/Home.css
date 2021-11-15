@@ -309,6 +309,7 @@
 
 .secondary-title-container{
     font-size: var(--fs-header2-tag);
+    font-size: 16px;
     display: flex;
     flex-wrap: nowrap;
     flex-shrink:0;
@@ -322,6 +323,7 @@
 .secondary-title::before{
     content:"FrontEndDeveloper";
     display: block;
+    
     animation: safari_titles 6s steps(1,end) infinite alternate-reverse ;
     overflow: hidden;
 }
