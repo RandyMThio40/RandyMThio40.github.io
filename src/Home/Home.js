@@ -107,8 +107,6 @@ export default function Home(){
             }
             case 1:{
                 element.classList.add("alt1");
-                console.log(document.querySelector(".alt1").style)
-
                 setTimeout(recursiveSetTimeout,9900);
                 break;
             }
