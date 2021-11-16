@@ -116,7 +116,7 @@ export default function Home(){
     return(
         <main className={`home-page-container ${(theme === "dark") ? "dark" : ""}`}>
             <div className="notification"> website is still under development </div>
-            <div className="testing-container">
+            <div className="testing-container indent">
                 <div className="testing">
                     <span className="testword"><span className="test-in"><div className="tets"/></span></span>
                 </div>

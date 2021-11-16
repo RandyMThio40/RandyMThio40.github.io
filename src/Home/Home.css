@@ -703,14 +703,18 @@
 }
 
 .testing-container{
-
+    display: flex;
     position: fixed;
     top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    transform:translate(0%,-50%);
     z-index:10;
-    padding: 1rem 7rem;
     background-color:orange;
+    font-size:2rem;
+}
+.testing-container::before{
+    /* display: inline; */
+    content:"<";
+    opacity: 0;
 }
 
 .testing{
@@ -718,7 +722,6 @@
     /* top:50%;
     left:50%; */
     color:black;
-    font-size:1rem;
     /* background-color:grey; */
     /* transform:translate(-50%,-50%); */
     width:max-content;
