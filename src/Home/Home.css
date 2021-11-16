@@ -684,3 +684,127 @@
     border-color:var(--bc-input-focus);
     outline: var(--bc-input-focus);
 }
+
+
+
+
+
+
+
+/* testing */
+
+@keyframes tep{
+    0%,99%,100%{
+        width:0%;
+    }
+    50%{
+        width:100%;
+    }
+}
+
+.testing-container{
+
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:10;
+    padding: 1rem 7rem;
+    background-color:orange;
+}
+
+.testing{
+    position: relative;
+    /* top:50%;
+    left:50%; */
+    color:black;
+    font-size:1rem;
+    /* background-color:grey; */
+    /* transform:translate(-50%,-50%); */
+    width:max-content;
+    display: flex;
+}
+
+@keyframes tets{
+    0%,99%,100%{
+        left:0;
+    }
+    50%{
+        left:100%;
+    }
+}
+
+@keyframes b{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.tets{
+    display: inline-block;
+    /* background-color:fuchsia; */
+    position: absolute;
+    left:0;
+    animation: tets 12s steps(17) infinite alternate;
+    /* z-index: 1000; */
+    /* width: 100%; */
+    height:100%;
+    transform: translate(2px);
+}
+
+.tets::before{
+    border-right:2px solid black;
+    content:"";
+    position: absolute;
+    left:0;
+    height:100%;
+    animation: b 250ms infinite alternate;
+}
+.tets::after{
+    content:"/>";
+    position:absolute;
+    left:calc(100% + 2px);
+}
+
+.testword{
+    display: flex;
+    position: relative;
+    z-index: 10000;
+    /* background-color:green; */
+
+}
+
+
+.testword::before{
+    display:inline-block;
+    content:"FrontEndDeveloper ";
+    animation:tep 12s steps(17) infinite alternate;
+    overflow:hidden;
+    background-color:transparent;
+
+}
+
+
+.test-in{
+    position: absolute;
+    left:0;
+    right:0;
+    height:100%;
+    width:100%;
+    top:0;
+    bottom:0;
+
+}
+.test-in::before{
+    content:"<";
+    position:absolute;
+    right:100%;
+}
+/* .test-in::after{
+    content:"/>";
+    position:absolute;
+    left:calc(100% + 2px);
+} */

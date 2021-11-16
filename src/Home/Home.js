@@ -1,12 +1,4 @@
 import resume from '../resume/Randy\'s_resume.pdf';
-import code_symbol from '../images/code.svg';
-import css from '../images/CSS.svg';
-import Figma from '../images/Figma.svg';
-import HTML from '../images/HTML.svg';
-import Javascript from '../images/Javascript.svg';
-import React_js from '../images/React_JS.svg';
-import SCSS from '../images/SCSS.svg';
-import Typrscript from '../images/Typescript.svg';
 import React,{useState,useEffect,useRef} from 'react';
 import './Home.css';
 import{ init } from 'emailjs-com';
@@ -28,19 +20,15 @@ export default function Home(){
 
     useEffect(()=>{
         console.log("home Theme: " , theme); 
-        // if(theme === "dark"){
-        //     const home_container = document.querySelector(".home-page-container");
-        //     home_container.classList.toggle()
-        // }
     },[theme])
 
-    const form_type ={
+    const form_type = {
         Name:"name",
         Email:"email",
         Message:"message"
     } 
-    const handleChange = (e,type) => {
-        // console.log(name.length ,name);
+
+    const handleChange = (e, type) => {
         if((!e.target.parentElement.classList.contains("active") && e.target.value.length) || !e.target.value.length) {
             e.target.parentElement.classList.toggle("active");
         }
@@ -84,8 +72,7 @@ export default function Home(){
         emailjs.send(process.env.REACT_APP_EMAIL_JS_SERVICE_ID,process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,form_block,process.env.REACT_APP_EMAIL_JS_USER_ID)
         .then(res=>console.log(res.text))
         .catch(err=>console.log(err.text));
-
-       
+        
         setEmail("");
         setName("");
         setMessage("");
@@ -127,8 +114,13 @@ export default function Home(){
     },[])
     
     return(
-        <main className={`home-page-container ${(theme === "dark")? "dark" : ""}`}>
+        <main className={`home-page-container ${(theme === "dark") ? "dark" : ""}`}>
             <div className="notification"> website is still under development </div>
+            <div className="testing-container">
+                <div className="testing">
+                    <span className="testword"><span className="test-in"><div className="tets"/></span></span>
+                </div>
+            </div>
             <section id="home" className="hero-landing">
                 {/* <img className="symbol-bg" id="code_symbol" src={code_symbol} alt="code_symbole" /> */}
                 <svg className="symbol-bg" id="code_symbol" width="394" height="438" viewBox="0 0 394 438" xmlns="http://www.w3.org/2000/svg">
