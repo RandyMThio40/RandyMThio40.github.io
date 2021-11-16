@@ -89,17 +89,17 @@ export default function Home(){
         console.log(count.current,element);
         switch(count.current){
             case 0:{
-                setTimeout(recursiveSetTimeout,12000);
+                setTimeout(recursiveSetTimeout,8000);
                 break;
             }
             case 1:{
                 element.classList.add("alt1");
-                setTimeout(recursiveSetTimeout,9900);
+                setTimeout(recursiveSetTimeout,8000);
                 break;
             }
             case 2:{
                 element.classList.add("alt2");
-                setTimeout(recursiveSetTimeout,9240);
+                setTimeout(recursiveSetTimeout,8000);
                 break;
             }
             default:{
@@ -110,17 +110,19 @@ export default function Home(){
     }
 
     useEffect(()=>{
-        setTimeout(recursiveSetTimeout,12000);
+        setTimeout(recursiveSetTimeout,8000);
+        setTimeout(()=>{
+            let element = document.querySelector(".testword");
+            element.classList.add("alt1");
+
+            
+        },12000)
     },[])
     
     return(
         <main className={`home-page-container ${(theme === "dark") ? "dark" : ""}`}>
             <div className="notification"> website is still under development </div>
-            <div className="testing-container indent">
-                <div className="testing">
-                    <span className="testword"><span className="test-in"><div className="tets"/></span></span>
-                </div>
-            </div>
+
             <section id="home" className="hero-landing">
                 {/* <img className="symbol-bg" id="code_symbol" src={code_symbol} alt="code_symbole" /> */}
                 <svg className="symbol-bg" id="code_symbol" width="394" height="438" viewBox="0 0 394 438" xmlns="http://www.w3.org/2000/svg">
@@ -195,7 +197,11 @@ export default function Home(){
                 <h3 className="opening-tag custom-tag">Home</h3>
                 <div className="hero-headers">
                     <h1 className="title-name indent"><span className="opening-tag">h1</span>Randy Thio<span className="closing-tag">h1</span></h1>
-                    <h3 className="secondary-title-container closed-tag indent"><span className="secondary-title"/></h3>
+                    <div className="secondary-title-container indent">
+                        <div className="secondary-title-wrapper">
+                            <h3 className="secondary-title"><span className="blinker"/></h3>
+                        </div>
+                    </div>
                 </div>
                 <div className="clickable-links-container">
                     <a tabIndex="-1" rel="noreferrer" href="#portfolio" className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr"><button> onClick </button></span><span className="curly-brackets">View</span></a>
