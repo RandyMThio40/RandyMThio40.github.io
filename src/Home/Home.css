@@ -16,6 +16,7 @@
     --bg-quotation:#5200FF;
     --bg-comment:#689553;
     --bg-form:#E1E1E1;
+    --c-form-input:#000000;
 
     --bc-equal-sign:black;
     --bc-input:#45D1FE;
@@ -62,6 +63,7 @@
     --bg-quotation:#9CDCFE;
     --bg-comment:#689553;
     --bg-form:#1E1E1E;
+    --c-form-input:#FFFFFF;
     --bc-input-value:white;
     --bc-equal-sign:white;
     --bc-stroke:rgba(128, 128, 128, 0.5);
@@ -333,7 +335,7 @@
     width:min-content;
 }
 
-.clickable-links-container button{
+.clickable-links-container > * button{
     all:inherit;
 }
 
@@ -345,6 +347,8 @@
 .clickable-links-container > *{
     display: inline-block;
     margin-bottom:1rem;
+    background-color:transparent;
+    border:none;
 }
 .clickable-links-container > *:hover{
     opacity:0.7;
@@ -353,6 +357,7 @@
 .Portfolio,
 .Resume,
 .Link{
+    font-family: inherit;
     width:max-content;
     text-decoration: none;
     white-space: nowrap;
@@ -488,7 +493,7 @@
     font-size:var(--fs-form);
     padding:0 1rem;
     border-radius:0.6rem;
-    border:0.2rem solid #45D1FE;
+    border:0.15rem solid #45D1FE;
     /* outline: 0.1rem solid #45D1FE; */
     outline: none;
 
@@ -555,8 +560,13 @@
     border:2px solid var(--bc-input);
     font-size: var(--fs-form);
     margin:1rem auto;
+    color:var(--c-form-input);
     
     resize:none;
+}
+
+#message-input::placeholder{
+    opacity: 0.5;
 }
 
 #message-input.active,

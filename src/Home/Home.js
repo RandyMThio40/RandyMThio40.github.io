@@ -109,14 +109,16 @@ export default function Home(){
         setCounter();
     }
 
+    const viewPortfolio = () => {
+        let element = document.getElementById('portfolio');
+        element.scrollIntoView();
+
+
+    }
+    
+
     useEffect(()=>{
         setTimeout(recursiveSetTimeout,8000);
-        setTimeout(()=>{
-            let element = document.querySelector(".testword");
-            element.classList.add("alt1");
-
-            
-        },12000)
     },[])
     
     return(
@@ -204,7 +206,7 @@ export default function Home(){
                     </div>
                 </div>
                 <div className="clickable-links-container">
-                    <a tabIndex="-1" rel="noreferrer" href="#portfolio" className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr"><button> onClick </button></span><span className="curly-brackets">View</span></a>
+                    <button onClick={viewPortfolio}  className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr">onClick</span><span className="curly-brackets">View</span></button>
                     <a tabIndex="-1" rel="noreferrer" href={resume} className="Resume closed-tag indent custom-tag" download>Resume <span className="attr"><button>onClick</button></span><span className="curly-brackets">Download</span></a>
                     <a tabIndex="-1" rel="noreferrer" href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">LinkedIn</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
                     <a tabIndex="-1" rel="noreferrer" href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">Github</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
