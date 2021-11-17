@@ -240,13 +240,13 @@
 /* animated header */
 
 @keyframes shifter_blinker{
-    0%,0.01%{ left:0; }
-    99%,100%{ left:100%; }
+    0%{ left:0; }
+    90%,99.99%,100%{ left:100%; }
 }
 
 @keyframes typewriter{
-    0%,0.01%{ width:0%; }
-    99%,100%{ width:100%; }
+    0%{ width:0%; }
+    90%,99.99%,100%{ width:100%; }
 }
 
 @keyframes blinker{
