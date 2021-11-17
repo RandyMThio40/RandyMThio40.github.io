@@ -220,7 +220,7 @@ export default function Home(){
                         <div className="about-me-para indent">
                             <h3 className="opening-tag ">p</h3>
                             <p className="indent about-me-para-content">
-                                I am a front end developer who passionate in building web apps. 
+                                I am a front end developer who is passionate in building web apps. 
                                 I enjoy using javascript/typescript and css to bring amazing designs to life. 
                                 I look forward to furthering my skills and deepening my knowledge on web development.
                             </p>
@@ -234,12 +234,12 @@ export default function Home(){
                 <div className="portfolio-wrapper">
                     <aside className="comment indent curly-brackets">/* These are some projects I’ve worked on for the past year */</aside>
                     <div className="portfolio-content">
-                        <div className="item"></div>
-                        <div className="item"></div>
-                        <div className="item"></div>
-                        <div className="item"></div>
-                        <div className="item"></div>
-                        <div className="item"></div>
+                        <div className="item">1</div>
+                        <div className="item">2</div>
+                        <div className="item">3</div>
+                        <div className="item">4</div>
+                        <div className="item">5</div>
+                        <div className="item">6</div>
                     </div>
                 </div>
                 <h3 className="closing-tag custom-tag">Portfolio</h3>

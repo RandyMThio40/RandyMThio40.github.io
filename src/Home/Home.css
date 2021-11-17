@@ -1,5 +1,6 @@
 :root{
     --sec-header2-ani-dur:4s;
+    --indent:3.5rem;
     
     --fs-reg-tag:1.7rem;
     --fs-custom-tag:2rem;
@@ -40,11 +41,11 @@
 
 .home-page-container{
     max-width:1440px;
-    height:max-content;
+    min-height: 1px;
+    height:calc(100% - 60px);
     margin:auto;
     background-color:var(--bg-hero-landing);
     overflow-x:hidden;
-    overflow-y:hidden;
 }
 
 .hero-landing{
@@ -66,7 +67,7 @@
     --c-form-input:#FFFFFF;
     --bc-input-value:white;
     --bc-equal-sign:white;
-    --bc-stroke:rgba(128, 128, 128, 0.5);
+    --bc-stroke:rgba(128, 128, 128, 0.25);
     --bg-fill:none;
     color:white;
 }
@@ -76,6 +77,7 @@
     position:absolute;
     user-select: none;
     stroke:var(--bc-stroke);
+    filter:blur(2px);
 }
 
 .symbol-bg > *{
@@ -212,8 +214,11 @@
 }
 
 .indent{
-    margin-left:3.5rem;
+    /* margin-left:3.5rem; */
+    margin-left:var(--indent);
+
 }
+
 
 .beg-tag,
 .end-tag{
@@ -225,6 +230,7 @@
 }
 
 .title-name{
+    width:max-content;
     font-size: var(--fs-header1-tag);
     margin-bottom:1rem;
 }
@@ -233,12 +239,12 @@
 
 @keyframes shifter_blinker{
     0%,0.01%{ left:0; }
-    98%,100%{ left:100%; }
+    85%,100%{ left:100%; }
 }
 
 @keyframes typewriter{
     0%,0.01%{ width:0%; }
-    98%,100%{ width:100%; }
+    85%,100%{ width:100%; }
 }
 
 @keyframes blinker{
@@ -275,21 +281,19 @@
 
 .secondary-title::before{
     content:"FrontEndDeveloper";
-    color:#4EC9B0;
+    color:var(--bg-custom-tag);
     animation: typewriter var(--sec-header2-ani-dur) steps(17) infinite alternate;
     overflow: hidden;
 }
 
 .secondary-title.alt1::before{
     content:"UserInterface";
-    /* animation:typewriter 9.18s steps(13) infinite alternate !important; */
     animation-timing-function: steps(13);
 }
 
 
 .secondary-title.alt2::before{
     content:"UserExperience";
-    /* animation:typewriter 9.88s steps(14) infinite alternate !important; */
     animation-timing-function: steps(14);
 }
 
@@ -387,7 +391,7 @@
 }
 
 .about-me-para-content{
-
+    padding-right:10%;
 }
 
 /* //////////////////////////    portfolio section     ////////////////////////////*/
@@ -405,21 +409,27 @@
 .comment{
     color:var(--bg-comment);
     font-size: var(--fs-reg-tag);
+    padding-right:2rem;
 }
 
 .portfolio-content{
-    display:grid;
-    grid:auto / auto  auto;
-    gap:2rem;
-    width:max-content;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+    width:100%;
     padding:2rem 0;
     margin: auto;
 }
 
 .item{
-    width:500px;
-    height:25rem;
+    min-width:320px;
+    width:30vw;
+    max-width:450px;
+    height:20rem;
     background-color:grey;
+    margin:10px;
+    flex-grow:1;
 }
 
 /* //////////////////////////    contact me section     ////////////////////////////*/
@@ -429,6 +439,7 @@
     flex-direction: column;
     justify-content: space-between;
     height:max(calc(100vh - 60px), 600px);
+    min-height: 1px;
 }
 
 .contact-me-wrapper{
@@ -436,9 +447,9 @@
     grid: auto / 50% 50%;
     align-items: center;
     justify-items: center;
-
     height:100%;
-    font-size:var(--fs-reg-tag)
+    font-size:var(--fs-reg-tag);
+    padding:1rem 0;
 }
 
 .final-message-container{
@@ -448,7 +459,9 @@
 /* //////////////////////////    form section     ////////////////////////////*/
 
 .send-email-form{
-    width:400px;
+    min-width:300px;
+    width:90%;
+    max-width:400px;
     padding:0.8rem 1rem;
     border-radius:1rem;
     background-color:var(--bg-form);
@@ -475,8 +488,10 @@
 
 .input-container{
     --sec-trans:0.4s;
+    --r-border:0.6rem;
     width: 92%;
     font-size: var(--fs-form);
+    border-radius:var(--r-border);
     padding:1.2rem;
     margin: 1rem auto;
 }
@@ -492,7 +507,7 @@
     background-color:var(--bg-form) ;
     font-size:var(--fs-form);
     padding:0 1rem;
-    border-radius:0.6rem;
+    border-radius:var(--r-border);
     border:0.15rem solid #45D1FE;
     /* outline: 0.1rem solid #45D1FE; */
     outline: none;
@@ -573,4 +588,73 @@
 #message-input:focus{
     border-color:var(--bc-input-focus);
     outline: var(--bc-input-focus);
+}
+
+@media screen and (max-width:768px){
+    :root{
+        --fs-reg-tag:1.2rem;
+        --fs-custom-tag:1.5rem;
+        --fs-header1-tag:2.5rem;
+        --fs-header2-tag:1.8rem;
+        --fs-form:1.1rem;
+        --indent:2.5rem;
+    }
+    .contact-me-wrapper{
+        grid:auto auto / auto;
+        /* justify-items: flex-start;
+        margin:var(--indent); */
+    }
+    .send-email-form{
+        width:100%;
+        max-width: 90%;
+    }
+    .final-message-container{
+        width:calc(100% - (2 * var(--indent)));
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width:580px){
+    :root{
+        --fs-reg-tag:1.2rem;
+        --fs-custom-tag:1.3rem;
+        --fs-header1-tag:2rem;
+        --fs-header2-tag:1.5rem;
+        --fs-form:1.1rem;
+        --indent:1.5rem;
+    }
+    .contact-me-wrapper{
+        grid:auto auto / auto;
+    }
+    .send-email-form{
+        background-color:transparent;
+        box-shadow: unset;
+        width:100%;
+        max-width: 100%;
+
+    }
+    .send-email-form .input-container, 
+    .send-email-form #message-input{
+        box-shadow: 1px 2px 3px black;
+    }
+
+
+}
+
+
+
+@media screen and (max-width:350px){
+    :root{
+        --fs-reg-tag:1rem;
+        --fs-custom-tag:1rem;
+        --fs-header1-tag:1.7rem;
+        --fs-header2-tag:1.3rem;
+        --fs-form:1.1rem;
+        --indent:1rem;
+    }
+    .notification{
+        font-size:0.8rem;
+    }
 }

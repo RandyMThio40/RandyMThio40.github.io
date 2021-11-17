@@ -17,9 +17,6 @@ export const ToggleTheme = () => {
         toggleTheme();
         butt.classList.toggle("active");
     }
-    React.useEffect(()=>{
-        console.log("current theme: ",theme);
-    },[theme])
 
     return(
         <>
