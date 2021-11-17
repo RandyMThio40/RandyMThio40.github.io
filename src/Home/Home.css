@@ -79,7 +79,7 @@
     position:absolute;
     user-select: none;
     stroke:var(--bc-stroke);
-    filter:blur(2px);
+    filter:blur(1px);
 }
 
 .symbol-bg > *{
@@ -273,6 +273,15 @@
     display:flex;
 }
 
+@keyframes nothing{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .secondary-title{
     font-size: inherit;
     display: flex;
@@ -311,7 +320,8 @@
     left:0;
     height:100%;
     border-right: 0.125em solid black;
-    animation: blinker 250ms infinite alternate;
+    /* animation: blinker 250ms infinite alternate; */
+    pointer-events: none;
 }
 
 .blinker::after{
