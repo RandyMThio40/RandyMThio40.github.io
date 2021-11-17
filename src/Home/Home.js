@@ -112,6 +112,8 @@ export default function Home(){
     const viewPortfolio = () => {
         let element = document.getElementById('portfolio');
         element.scrollIntoView();
+        element.scrollIntoView(false);
+        element.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"});
 
 
     }

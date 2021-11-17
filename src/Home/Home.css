@@ -654,7 +654,7 @@
 @media screen and (max-width:380px){
     :root{
         --fs-reg-tag:1rem;
-        --fs-custom-tag:0.8rem;
+        --fs-custom-tag:0.95rem;
         --fs-header1-tag:1.5rem;
         --fs-header2-tag:1.2rem;
         --fs-form:1.1rem;
