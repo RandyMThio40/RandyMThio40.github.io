@@ -46,6 +46,7 @@
     margin:auto;
     background-color:var(--bg-hero-landing);
     overflow-x:hidden;
+    scroll-behavior: smooth;
 }
 
 .hero-landing{
@@ -240,12 +241,12 @@
 
 @keyframes shifter_blinker{
     0%,0.01%{ left:0; }
-    85%,100%{ left:100%; }
+    99%,100%{ left:100%; }
 }
 
 @keyframes typewriter{
     0%,0.01%{ width:0%; }
-    85%,100%{ width:100%; }
+    99%,100%{ width:100%; }
 }
 
 @keyframes blinker{
