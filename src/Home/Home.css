@@ -53,6 +53,7 @@
     flex-direction: column;
     justify-content: space-between;
     height:max(calc(100vh - 60px),600px);
+
 }
 
 .home-page-container.dark{
@@ -257,7 +258,6 @@
     flex-wrap: nowrap;
     flex-shrink:0;
     font-weight: bold;
-    
 }
 
 .secondary-title-container::before{
@@ -265,7 +265,6 @@
     opacity:1;
     color:grey;
     font-size: var(--fs-header2-tag);
-
 }
 
 .secondary-title-wrapper{
@@ -290,7 +289,6 @@
     content:"UserInterface";
     animation-timing-function: steps(13);
 }
-
 
 .secondary-title.alt2::before{
     content:"UserExperience";
@@ -347,13 +345,13 @@
     outline: 2px solid orange;
 }
 
-
 .clickable-links-container > *{
     display: inline-block;
     margin-bottom:1rem;
     background-color:transparent;
     border:none;
 }
+
 .clickable-links-container > *:hover{
     opacity:0.7;
 }
@@ -592,11 +590,11 @@
 
 @media screen and (max-width:768px){
     :root{
-        --fs-reg-tag:1.2rem;
+        --fs-reg-tag:1.3rem;
         --fs-custom-tag:1.5rem;
         --fs-header1-tag:2.5rem;
         --fs-header2-tag:1.8rem;
-        --fs-form:1.1rem;
+        --fs-form:1.5rem;
         --indent:2.5rem;
     }
     .contact-me-wrapper{
@@ -607,13 +605,13 @@
     .send-email-form{
         width:100%;
         max-width: 90%;
+        margin-top:1rem;
     }
     .final-message-container{
         width:calc(100% - (2 * var(--indent)));
         max-width: 100%;
         margin: 0 auto;
     }
-
 }
 
 @media screen and (max-width:580px){
@@ -633,28 +631,45 @@
         box-shadow: unset;
         width:100%;
         max-width: 100%;
-
     }
     .send-email-form .input-container, 
     .send-email-form #message-input{
         box-shadow: 1px 2px 3px black;
     }
+}
 
-
+@media screen and (max-width:500px){
+    :root{
+        --fs-reg-tag:1rem;
+        --fs-custom-tag:1rem;
+        --fs-header1-tag:1.8rem;
+        --fs-header2-tag:1.4rem;
+        --fs-form:1.1rem;
+        --indent:1.5rem;
+    }
 }
 
 
 
-@media screen and (max-width:350px){
+@media screen and (max-width:380px){
     :root{
         --fs-reg-tag:1rem;
-        --fs-custom-tag:1rem;
-        --fs-header1-tag:1.7rem;
-        --fs-header2-tag:1.3rem;
+        --fs-custom-tag:0.8rem;
+        --fs-header1-tag:1.5rem;
+        --fs-header2-tag:1.2rem;
         --fs-form:1.1rem;
         --indent:1rem;
     }
     .notification{
         font-size:0.8rem;
+    }
+    .hero-landing{
+        height:max(calc(100vh - 60px),400px);
+    }
+    .hero-headers{
+        margin-bottom:2rem;
+    }
+    .clickable-links-container > *{
+        margin-bottom:0.5rem;
     }
 }
