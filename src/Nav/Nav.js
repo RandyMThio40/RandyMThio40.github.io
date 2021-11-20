@@ -17,12 +17,31 @@ export default function Nav(){
             },false)
             // console.log(link_list[index], element);
         }
+        const nav_links = document.querySelector(".nav-links");
+        window.addEventListener('resize',(e)=>{
+            if(e.currentTarget.innerWidth === 700){
+                nav_links.classList.remove("active");
+            }
+        })
+
     },[])
+
+    const handleToggle = (e)=> {
+        const nav_links = document.querySelector(".nav-links");
+        nav_links.classList.toggle("active");
+        e.target.classList.toggle("active");
+    }
 
     return(
         <nav className="nav-bar">
             <div className="nav-bar-wrapper">
                 <button><h1 className="logo">Randy Thio</h1></button>
+                <button className="borger" onClick={handleToggle}>
+                    
+                    <div className="bun"></div>
+                    <div className="bun"></div>
+                
+                </button>
 
                 <div className="nav-links" role="tablist">
                     <span><button>Home</button></span>
@@ -30,6 +49,7 @@ export default function Nav(){
                     <span><button>Portfolio</button></span>
                     <span><button>Contact Me</button></span>
                     <ToggleTheme/>
+
                 </div>
             </div>
         </nav>

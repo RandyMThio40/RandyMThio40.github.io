@@ -16,7 +16,6 @@ export default function Home(){
     const [message,setMessage] = useState("");
     const form = useRef();
     const count = useRef(1);
-    const iterations = useRef(0);
     const theme = GetTheme();
 
     useEffect(()=>{
@@ -82,11 +81,7 @@ export default function Home(){
     const setCounter = () => {
         count.current = ++count.current%3;
     }
-
-    const setIterate = () => {
-        iterations.current = ++iterations.current%2;
-    }
-
+    
     const viewPortfolio = () => {
         let element = document.getElementById('portfolio');
         element.scrollIntoView();
@@ -99,7 +94,6 @@ export default function Home(){
         const blinker  = document.getElementsByClassName("blinker")[0];
         const secondary_title  = document.getElementsByClassName("secondary-title")[0];
         secondary_title.addEventListener('animationiteration',(e)=>{
-            console.log("iterate: ", iterations.current, e.elapsedTime,e);
             if(document.querySelector(".alt1")) secondary_title.classList.remove("alt1");
             if(document.querySelector(".alt2")) secondary_title.classList.remove("alt2");
             switch(count.current){
