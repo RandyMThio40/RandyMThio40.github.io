@@ -1,5 +1,5 @@
 :root{
-    --sec-header2-ani-dur:4s;
+    --sec-header2-ani-dur:10s;
     --indent:3.5rem;
     
     --fs-reg-tag:1.7rem;
@@ -12,6 +12,7 @@
     --bg-hero-landing:#FFFFFF;
     --bg-header-tag:#039E00;
     --bg-custom-tag:#8D34FF;
+    --bg-blinker:#8D34FFBB;
     --bg-attr:#008CFF;
     --bg-inside-curly:#1063DF;
     --bg-quotation:#5200FF;
@@ -61,6 +62,7 @@
     --bg-hero-landing:#121212;
     --bg-header-tag:#1778EB;
     --bg-custom-tag:#4EC9B0;
+    --bg-blinker:#4EC9B0BB;
     --bg-attr:#9CDCFE;
     --bg-inside-curly:#FFD700;
     --bg-quotation:#9CDCFE;
@@ -240,17 +242,18 @@
 /* animated header */
 
 @keyframes shifter_blinker{
-    0%{ left:0; }
-    90%,99.99%,100%{ left:100%; }
+    0%,99%,99.99%,100%{ left:0; }
+    35%,65%{ left:100%; }
 }
 
 @keyframes typewriter{
-    0%{ width:0%; }
-    90%,99.99%,100%{ width:100%; }
+    0%,99%,99.99%,100%{ width:0%; }
+    35%,65%{ width:100%; }
 }
 
 @keyframes blinker{
-    to{ opacity: 0 }
+    0%,36%,44%,52%,60%,65%,99%,99.99%,100%{ opacity:1; }
+    40%,48%,56%,64%{ opacity: 0; }
 }
 
 .secondary-title-container{
@@ -273,15 +276,6 @@
     display:flex;
 }
 
-@keyframes nothing{
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
 .secondary-title{
     font-size: inherit;
     display: flex;
@@ -291,7 +285,7 @@
 .secondary-title::before{
     content:"FrontEndDeveloper";
     color:var(--bg-custom-tag);
-    animation: typewriter var(--sec-header2-ani-dur) steps(17) infinite alternate;
+    animation: typewriter var(--sec-header2-ani-dur) steps(17) infinite;
     overflow: hidden;
 }
 
@@ -309,7 +303,7 @@
     display: inline-block;
     position:absolute;
     left:0;
-    animation:shifter_blinker var(--sec-header2-ani-dur) steps(17) infinite alternate;
+    animation:shifter_blinker var(--sec-header2-ani-dur) steps(17) infinite;
     height:100%;
     transform:translate(2px);
 }
@@ -319,8 +313,8 @@
     position:absolute;
     left:0;
     height:100%;
-    border-right: 0.125em solid black;
-    /* animation: blinker 250ms infinite alternate; */
+    border-right: 0.125em solid var(--bg-blinker);
+    animation: blinker var(--sec-header2-ani-dur) infinite;
 }
 
 .blinker::after{
@@ -455,6 +449,7 @@
     grid: auto / 50% 50%;
     align-items: center;
     justify-items: center;
+    min-height: 1px;
     height:100%;
     font-size:var(--fs-reg-tag);
     padding:1rem 0;

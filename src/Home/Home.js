@@ -16,6 +16,7 @@ export default function Home(){
     const [message,setMessage] = useState("");
     const form = useRef();
     const count = useRef(1);
+    const iterations = useRef(0);
     const theme = GetTheme();
 
     useEffect(()=>{
@@ -82,31 +83,8 @@ export default function Home(){
         count.current = ++count.current%3;
     }
 
-    const recursiveSetTimeout = () => {
-        const element = document.getElementsByClassName("secondary-title")[0];
-        if(document.querySelector(".alt1")) element.classList.remove("alt1");
-        if(document.querySelector(".alt2")) element.classList.remove("alt2");
-        console.log(count.current,element);
-        switch(count.current){
-            case 0:{
-                setTimeout(recursiveSetTimeout,8000);
-                break;
-            }
-            case 1:{
-                element.classList.add("alt1");
-                setTimeout(recursiveSetTimeout,8000);
-                break;
-            }
-            case 2:{
-                element.classList.add("alt2");
-                setTimeout(recursiveSetTimeout,8000);
-                break;
-            }
-            default:{
-                break;
-            }
-        }
-        setCounter();
+    const setIterate = () => {
+        iterations.current = ++iterations.current%2;
     }
 
     const viewPortfolio = () => {
@@ -118,33 +96,30 @@ export default function Home(){
     
     
     useEffect(()=>{
-        let even_iterations = false;
         const blinker  = document.getElementsByClassName("blinker")[0];
         const secondary_title  = document.getElementsByClassName("secondary-title")[0];
-       blinker.addEventListener('animationiteration',()=>{
-            console.log("iterate");
-            if(even_iterations){
-                if(document.querySelector(".alt1")) secondary_title.classList.remove("alt1");
-                if(document.querySelector(".alt2")) secondary_title.classList.remove("alt2");
-                switch(count.current){
-                    case 1:{
-                        secondary_title.classList.add("alt1");
-                        break;
-                    }
-                    case 2:{
-                        secondary_title.classList.add("alt2");
-                        break;
-                    }
-                    default:{
-                        break;
-                    }
+        secondary_title.addEventListener('animationiteration',(e)=>{
+            console.log("iterate: ", iterations.current, e.elapsedTime,e);
+            if(document.querySelector(".alt1")) secondary_title.classList.remove("alt1");
+            if(document.querySelector(".alt2")) secondary_title.classList.remove("alt2");
+            switch(count.current){
+                case 1:{
+                    secondary_title.classList.add("alt1");
+                    break;
                 }
-                setCounter();
+                case 2:{
+                    secondary_title.classList.add("alt2");
+                    break;
+                }
+                default:{
+                    break;
+                }
             }
-            even_iterations = !even_iterations;
-
+            setCounter();
         })
-        // setTimeout(recursiveSetTimeout,8000);
+        blinker.addEventListener("animationiteration",(e)=>{
+            e.stopPropagation();
+        })
     },[])
     
     return(
