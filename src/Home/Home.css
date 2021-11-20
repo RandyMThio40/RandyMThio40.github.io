@@ -440,8 +440,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    height:max(calc(100vh - 60px), 600px);
-    min-height: 1px;
+    height:max(calc(100vh - 60px), 650px);
 }
 
 .contact-me-wrapper{
@@ -449,7 +448,6 @@
     grid: auto / 50% 50%;
     align-items: center;
     justify-items: center;
-    min-height: 1px;
     height:100%;
     font-size:var(--fs-reg-tag);
     padding:1rem 0;
