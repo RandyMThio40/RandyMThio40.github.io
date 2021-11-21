@@ -18,10 +18,6 @@ export default function Home(){
     const count = useRef(1);
     const theme = GetTheme();
 
-    useEffect(()=>{
-        console.log("home Theme: " , theme); 
-    },[theme])
-
     const form_type = {
         Name:"name",
         Email:"email",
@@ -62,7 +58,6 @@ export default function Home(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form.current);
         const form_block = {
             name:name,
             email:email,
@@ -203,8 +198,8 @@ export default function Home(){
                 <div className="clickable-links-container">
                     <button onClick={viewPortfolio}  className="Portfolio closed-tag indent custom-tag">Portfolio <span className="attr">onClick</span><span className="curly-brackets">View</span></button>
                     <a tabIndex="-1" rel="noreferrer" href={resume} className="Resume closed-tag indent custom-tag" download>Resume <span className="attr"><button>onClick</button></span><span className="curly-brackets">Download</span></a>
-                    <a tabIndex="-1" rel="noreferrer" href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">LinkedIn</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
-                    <a tabIndex="-1" rel="noreferrer" href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">Github</span> <span className="attr">target</span><span className="quotation">_blank</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">LinkedIn</span><span className="attr"> target</span><span className="quotation">_blank</span></a>
+                    <a tabIndex="-1" rel="noreferrer" href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">Github</span><span className="attr"> target</span><span className="quotation">_blank</span></a>
                 </div>
                 <h3 className="closing-tag custom-tag">Home</h3>
             </section>

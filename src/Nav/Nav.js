@@ -18,8 +18,10 @@ export default function Nav(){
             // console.log(link_list[index], element);
         }
         const nav_links = document.querySelector(".nav-links");
+        const borger = document.querySelector(".borger");
         window.addEventListener('resize',(e)=>{
             if(e.currentTarget.innerWidth === 700){
+                borger.classList.remove("active");
                 nav_links.classList.remove("active");
             }
         })
