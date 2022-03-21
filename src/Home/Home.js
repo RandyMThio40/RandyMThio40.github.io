@@ -4,7 +4,16 @@ import './Home.css';
 import{ init } from 'emailjs-com';
 import emailjs from 'emailjs-com';
 import { GetTheme } from '../components/useContext/provideTheme';
-
+import iconic from '../images/iconic_sports_labs.png';
+import react_icon from '../images/react_icon.svg'
+import gsap_icon from '../images/gsap_icon.svg'
+import axios_icon from '../images/axios_icon.svg'
+import react_router_icon from '../images/react_router_icon.svg'
+import express_icon from '../images/express_icon.svg'
+import stripe_icon from '../images/stripe_icon.svg'
+import mailchimp_icon from '../images/mailchimp_icon.svg'
+import ps_icon from '../images/ps_icon.svg'
+import github_icon from '../images/github_icon.svg'
 
 
 init(process.env.REACT_APP_EMAIL_JS_USER_ID);
@@ -84,6 +93,18 @@ export default function Home(){
         element.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"});
     }
     
+    const setActive = (e) => {
+        e.target.parentNode.classList.add("active");
+    }
+
+    const setIndicators = (e) => {
+        console.log(e.target.scrollWidth,e.target.scrollLeft,e.target.scrollWidth - e.target.offsetWidth,e.target.offsetWidth);
+        if(e.target.scrollWidth <= e.target.offsetWidth) return;
+        if(e.target.scrollLeft >= e.target.scrollWidth - e.target.offsetWidth) e.target.nextSibling.style.display = "none";
+        if(e.target.scrollLeft === 0) e.target.previousSibling.style.display = "none";
+        if(e.target.scrollLeft < e.target.scrollWidth - e.target.offsetWidth) e.target.nextSibling.style.display = "";
+        if(e.target.scrollLeft > 0) e.target.previousSibling.style.display = "block";
+    }
     
     useEffect(()=>{
         const blinker  = document.getElementsByClassName("blinker")[0];
@@ -222,10 +243,85 @@ export default function Home(){
             <section id="portfolio" className="portfolio-container">
                 <h3 className="opening-tag custom-tag">Portfolio</h3>
                 <div className="portfolio-wrapper">
-                    <aside className="comment indent curly-brackets">/* These are some projects I’ve worked on for the past year */</aside>
+                    <aside className="comment indent curly-brackets">/* These are some projects I've worked on for the past year */</aside>
                     <div className="portfolio-content">
                         <div className="item">1</div>
-                        <div className="item">2</div>
+                        <div className="item">
+                            <img onClick={setActive} src={iconic} alt="iconic_sports_labs.png" />
+                            <div className="modal-container">
+                                <div className="modal-content">
+                                    <button className="modal-close" onClick={()=>document.querySelector(".item.active").classList.remove("active")}/>
+                                    <h3 className="opening-tag custom-tag">Modal</h3>
+                                    <div className="modal-wrapper">
+                                        <h3 className="modal-header"><span className="opening-tag">h3</span>Iconic_Sports_Labs<span className="closing-tag">h3</span></h3>
+                                        <h5 className="opening-tag custom-tag">About</h5>
+                                        <div className="indent" style={{overflow:"scroll"}}> 
+                                            <p className="modal-blurb">
+                                                A website for an organization that brings communities together 
+                                                and inspires kids to think ahead and grow to realize their potential. 
+                                                We used React framework as well as other APIs such as GreenSock Animation Platform (GSAP),
+                                                Axios, React-Router, express, stripe, and mailchimp_marketing. Designs and assets were drawn up using 
+                                                Adobe Photoshop.
+                                            </p>
+                                            <h5 className="modal-subheader"><span className="opening-tag">h5</span>My contribution:<span className="closing-tag">h5</span></h5>
+                                            <p>
+                                                I worked as a Frontend developer tasked with implementing many designs
+                                                given and suggested mechanisms/animations.
+                                            </p>
+                                        </div>
+                                        <h5 className="closing-tag custom-tag">About</h5>
+                                        <h5 className="opening-tag custom-tag">Technologies</h5>
+                                        <div className="modal-technologies" >
+                                            <div className="indicators"/>
+                                            <div className="modal-technologies-wrapper" onScroll={setIndicators}>
+                                                <figure>
+                                                    <img src={react_icon} />
+                                                    <figcaption>React.js</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src={gsap_icon} />
+                                                    <figcaption>GSAP</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src={axios_icon} />
+                                                    <figcaption>Axios</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src={react_router_icon} />
+                                                    <figcaption>React-Router</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img className='blend' src={express_icon} />
+                                                    <figcaption>Express</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img src={stripe_icon} />
+                                                    <figcaption>Stripe</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img className="blend" src={mailchimp_icon} alt="mailchimp.svg"/>
+                                                    <figcaption>Mailchimp</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img className="blend" src={ps_icon} alt="ps_icon.svg"/>
+                                                    <figcaption>Adobe-Photoshop</figcaption>
+                                                </figure>
+                                                <figure>
+                                                    <img className="blend" src={github_icon} alt="github_icon.svg"/>
+                                                    <figcaption>Github</figcaption>
+                                                </figure>
+                                            </div>
+                                            <div className="indicators"/>
+                                        </div>
+                                        <h5 className="closing-tag custom-tag">Technologies</h5>
+                                        <div className="modal-button-container">
+                                            
+                                        </div>
+                                    </div>
+                                    <h3 className="closing-tag custom-tag">Modal</h3>
+                                </div>
+                            </div>
+                        </div>
                         <div className="item">3</div>
                         <div className="item">4</div>
                         <div className="item">5</div>

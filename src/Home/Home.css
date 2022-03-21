@@ -435,6 +435,181 @@
     flex-grow:1;
 }
 
+.item > img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center center;
+    transition:transform 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.item.active .modal-container{
+    display: flex;
+}
+.item .modal-container{
+    
+    --indent:1.2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99999999;
+}
+
+.item .modal-container .modal-content{
+    --padding:20px;
+    display: flex;
+    flex-direction:column;
+    min-width:300px;
+    width:99vw;
+    max-width:600px;
+    height:99vh;
+    max-height: 410px;
+    background-color: var(--bg-hero-landing);
+    padding:var(--padding);
+    font-size: 1rem;
+    border-radius:1rem;
+    
+}
+
+.item .modal-container .modal-content .modal-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding-left:var(--indent);
+    overflow: hidden;
+}
+
+.item .modal-container .modal-content .modal-header{
+    font-size:1.1em;
+}
+
+.item .modal-container .modal-content .custom-tag{
+    width:max-content;
+    font-size:1.2em;
+}
+
+.item .modal-container .modal-content .modal-subheader{
+    font-size:1em;
+}
+
+.item .modal-container .modal-content .modal-close{
+    position:absolute;
+    right:var(--padding);
+    top:var(--padding);
+    width:max-content;
+    padding:15px;
+    background-color: #E1E1E1;
+    border:none;
+    border-radius:50%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.item .modal-container .modal-content .modal-close:hover{
+    opacity: 0.8;
+}
+.item .modal-container .modal-content .modal-close:active{
+    opacity: 0.5;
+}
+
+.item .modal-container .modal-content .modal-close::after,
+.item .modal-container .modal-content .modal-close:before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:70%;
+    height:1px;
+    background-color: #1E1E1E;
+    transform:translate(-50%,-50%) rotate(45deg);
+    pointer-events: none;
+}
+.item .modal-container .modal-content .modal-close:after{
+    transform:translate(-50%,-50%) rotate(-45deg);
+}
+.item .modal-container .modal-content .modal-blurb{
+
+}
+
+.item .modal-container .modal-content .modal-technologies{
+    padding-left: var(--indent);
+    padding-right: 5px;
+    width:100%;
+    flex-shrink: 0;
+}
+
+.item .modal-container .modal-content .modal-technologies .modal-technologies-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+
+@keyframes indicate {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.item .modal-container .modal-content .modal-technologies .indicators{
+    display: none;
+    position:absolute;
+    left:var(--indent);
+    top:0;
+    bottom:0;
+    width:5px;
+    height: 100%;
+    background-color: currentColor;
+    flex-shrink: 0;
+    animation: indicate 500ms ease-in-out infinite alternate;
+    transform:translate(-100%);
+}
+.item .modal-container .modal-content .modal-technologies .indicators:nth-child(3){
+    display: block;
+    left:unset;
+    right:0;
+    transform:unset;
+}
+.item .modal-container .modal-content .modal-technologies figure{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin:0 10px;
+}
+.item .modal-container .modal-content .modal-technologies figure img{
+    max-width: 100px;
+    height:45px;
+    margin-bottom: 5px; 
+}
+.item .modal-container .modal-content .modal-technologies figure .blend{
+    mix-blend-mode: exclusion;
+}
+.item .modal-container .modal-content .modal-technologies figcaption{
+    white-space: nowrap;
+    word-wrap: none;
+}
+
+.item .modal-container .modal-content .modal-technologies figure *{
+    flex-shrink: 0;
+}
+
+@media (hover:hover){
+    .item > img:hover{
+        transform:scale(1.1);
+        z-index: 1;
+    }
+}
+
+
+
 /* //////////////////////////    contact me section     ////////////////////////////*/
 
 .contact-me-container{
@@ -643,6 +818,7 @@
     }
 }
 
+
 @media screen and (max-width:580px){
     :root{
         --fs-reg-tag:1.2rem;
@@ -670,6 +846,12 @@
     .send-email-form .input-container, 
     .send-email-form #message-input{
         box-shadow: 1px 2px 3px black;
+    }
+    .item .modal-container .modal-content{
+        font-size: 0.8rem;
+        /* width:600px;
+        height:400px;
+        border-radius:1rem; */
     }
 }
 
