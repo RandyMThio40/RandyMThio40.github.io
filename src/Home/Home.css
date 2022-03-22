@@ -470,9 +470,9 @@
     flex-direction:column;
     min-width:300px;
     width:99vw;
-    max-width:600px;
+    max-width:700px;
     height:99vh;
-    max-height: 410px;
+    max-height: 430px;
     background-color: var(--bg-hero-landing);
     padding:var(--padding);
     font-size: 1rem;
@@ -577,6 +577,10 @@
     right:0;
     transform:unset;
 }
+.item .modal-container .modal-content .modal-technologies a{
+    text-decoration: none;
+    color:inherit;
+}
 .item .modal-container .modal-content .modal-technologies figure{
     display: flex;
     height: 100%;
@@ -606,6 +610,15 @@
         transform:scale(1.1);
         z-index: 1;
     }
+}
+
+.item .modal-container .modal-content .modal-button-container > *{
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+.item .modal-container .modal-content .modal-button-container > *:hover{
+    opacity: 0.8;
 }
 
 

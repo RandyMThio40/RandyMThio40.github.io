@@ -5,6 +5,7 @@ import{ init } from 'emailjs-com';
 import emailjs from 'emailjs-com';
 import { GetTheme } from '../components/useContext/provideTheme';
 import iconic from '../images/iconic_sports_labs.png';
+import my_portfolio_preview from '../images/my_portfolio_preview.png';
 import react_icon from '../images/react_icon.svg'
 import gsap_icon from '../images/gsap_icon.svg'
 import axios_icon from '../images/axios_icon.svg'
@@ -14,6 +15,7 @@ import stripe_icon from '../images/stripe_icon.svg'
 import mailchimp_icon from '../images/mailchimp_icon.svg'
 import ps_icon from '../images/ps_icon.svg'
 import github_icon from '../images/github_icon.svg'
+import figma_icon from '../images/figma_icon.svg'
 
 
 init(process.env.REACT_APP_EMAIL_JS_USER_ID);
@@ -247,6 +249,63 @@ export default function Home(){
                     <div className="portfolio-content">
                         <div className="item">1</div>
                         <div className="item">
+                            <img onClick={setActive} src={my_portfolio_preview} alt="my_portfolio_preview.png" />
+                            <div className="modal-container">
+                                <div className="modal-content">
+                                    <button className="modal-close" onClick={()=>document.querySelector(".item.active").classList.remove("active")}/>
+                                    <h3 className="opening-tag custom-tag">Modal</h3>
+                                    <div className="modal-wrapper">
+                                        <h3 className="modal-header"><span className="opening-tag">h3</span>My_Portfolio<span className="closing-tag">h3</span></h3>
+                                        <h5 className="opening-tag custom-tag">About</h5>
+                                        <div className="indent" style={{overflow:"scroll"}}> 
+                                            <p className="modal-blurb">
+                                                A website for gathering my works together in one place and to show that I am
+                                                capable and that I am capable of doing more. I pulled inspiration using the IDE
+                                                I use, Visual Studio Code. I used the color pallet that I use when I code. This website is 
+                                                made using React, designed using Figma a wireframe making tool and stored and hosted by Github.
+                                            </p>
+                                            <h5 className="modal-subheader"><span className="opening-tag">h5</span>My contribution:<span className="closing-tag">h5</span></h5>
+                                            <p>
+                                                I designed and created this website
+                                            </p>
+                                        </div>
+                                        <h5 className="closing-tag custom-tag">About</h5>
+                                        <h5 className="opening-tag custom-tag">Technologies</h5>
+                                        <div className="modal-technologies" >
+                                            <div className="modal-technologies-wrapper">
+                                                <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={react_icon} />
+                                                        <figcaption>React.js</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://www.figma.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className="blend" src={figma_icon} alt="github_icon.svg"/>
+                                                        <figcaption>Figma</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://github.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className="blend" src={github_icon} alt="github_icon.svg"/>
+                                                        <figcaption>Github</figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <h5 className="closing-tag custom-tag">Technologies</h5>
+                                        <h5 className='custom-tag opening-tag'>Redirect</h5>
+                                        <div className="modal-button-container indent">
+                                            <a href="https://randymthio40.github.io/my-portfolio/" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Website</span></span></a>
+                                            <a href="https://github.com/RandyMThio40/my-portfolio" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Github</span></span></a>
+                                        </div>
+                                        <h5 className='custom-tag closing-tag'>Redirect</h5>
+                                    </div>
+                                    <h3 className="closing-tag custom-tag">Modal</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="item">
                             <img onClick={setActive} src={iconic} alt="iconic_sports_labs.png" />
                             <div className="modal-container">
                                 <div className="modal-content">
@@ -274,58 +333,79 @@ export default function Home(){
                                         <div className="modal-technologies" >
                                             <div className="indicators"/>
                                             <div className="modal-technologies-wrapper" onScroll={setIndicators}>
-                                                <figure>
-                                                    <img src={react_icon} />
-                                                    <figcaption>React.js</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img src={gsap_icon} />
-                                                    <figcaption>GSAP</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img src={axios_icon} />
-                                                    <figcaption>Axios</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img src={react_router_icon} />
-                                                    <figcaption>React-Router</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img className='blend' src={express_icon} />
-                                                    <figcaption>Express</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img src={stripe_icon} />
-                                                    <figcaption>Stripe</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img className="blend" src={mailchimp_icon} alt="mailchimp.svg"/>
-                                                    <figcaption>Mailchimp</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img className="blend" src={ps_icon} alt="ps_icon.svg"/>
-                                                    <figcaption>Adobe-Photoshop</figcaption>
-                                                </figure>
-                                                <figure>
-                                                    <img className="blend" src={github_icon} alt="github_icon.svg"/>
-                                                    <figcaption>Github</figcaption>
-                                                </figure>
+                                                <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={react_icon} />
+                                                        <figcaption>React.js</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://greensock.com/gsap/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={gsap_icon} />
+                                                        <figcaption>GSAP</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://axios-http.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={axios_icon} />
+                                                        <figcaption>Axios</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://reactrouter.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={react_router_icon} />
+                                                        <figcaption>React-Router</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://expressjs.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className='blend' src={express_icon} />
+                                                        <figcaption>Express</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://stripe.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img src={stripe_icon} />
+                                                        <figcaption>Stripe</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://mailchimp.com/integrations/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className="blend" src={mailchimp_icon} alt="mailchimp.svg"/>
+                                                        <figcaption>Mailchimp</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://www.adobe.com/products/photoshop.html" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className="blend" src={ps_icon} alt="ps_icon.svg"/>
+                                                        <figcaption>Adobe-Photoshop</figcaption>
+                                                    </figure>
+                                                </a>
+                                                <a href="https://github.com/" rel="noreferrer" target="_blank">
+                                                    <figure>
+                                                        <img className="blend" src={github_icon} alt="github_icon.svg"/>
+                                                        <figcaption>Github</figcaption>
+                                                    </figure>
+                                                </a>
                                             </div>
                                             <div className="indicators"/>
                                         </div>
                                         <h5 className="closing-tag custom-tag">Technologies</h5>
-                                        <div className="modal-button-container">
-                                            
+                                        <h5 className='custom-tag opening-tag'>Redirect</h5>
+                                        <div className="modal-button-container indent">
+                                            <a href="https://iconic-sports-lab.herokuapp.com/" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Website</span></span></a>
+                                            <a href="https://github.com/StableSoftworks/IconicSports" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Github</span></span></a>
                                         </div>
+                                        <h5 className='custom-tag closing-tag'>Redirect</h5>
                                     </div>
                                     <h3 className="closing-tag custom-tag">Modal</h3>
                                 </div>
                             </div>
                         </div>
-                        <div className="item">3</div>
                         <div className="item">4</div>
                         <div className="item">5</div>
                         <div className="item">6</div>
+                        <div className="item">7</div>
                     </div>
                 </div>
                 <h3 className="closing-tag custom-tag">Portfolio</h3>
