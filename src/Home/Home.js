@@ -260,7 +260,7 @@ export default function Home(){
                                         <div className="indent" style={{overflow:"scroll"}}> 
                                             <p className="modal-blurb">
                                                 A website for gathering my works together in one place and to show that I am
-                                                capable and that I am capable of doing more. I pulled inspiration using the IDE
+                                                capable of doing more. I pulled inspiration using the IDE
                                                 I use, Visual Studio Code. I used the color pallet that I use when I code. This website is 
                                                 made using React, designed using Figma a wireframe making tool and stored and hosted by Github.
                                             </p>
