@@ -43,7 +43,6 @@
 
 .home-page-container{
     max-width:1440px;
-    min-height: 1px;
     height:calc(100% - 60px);
     margin:auto;
     background-color:var(--bg-hero-landing);
@@ -471,8 +470,8 @@
     min-width:300px;
     width:99vw;
     max-width:700px;
-    height:99vh;
-    max-height: 430px;
+    height:max-content;
+    max-height: 99vh;
     background-color: var(--bg-hero-landing);
     padding:var(--padding);
     font-size: 1rem;
@@ -484,7 +483,8 @@
     display: flex;
     flex-direction: column;
     padding-left:var(--indent);
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .item .modal-container .modal-content .modal-header{
@@ -535,8 +535,12 @@
 .item .modal-container .modal-content .modal-close:after{
     transform:translate(-50%,-50%) rotate(-45deg);
 }
+.item .modal-container .modal-content .modal-blurb-container{
+    min-height: 80px;
+    overflow: scroll;
+}
 .item .modal-container .modal-content .modal-blurb{
-
+    min-height: 100px;
 }
 
 .item .modal-container .modal-content .modal-technologies{
@@ -546,6 +550,14 @@
     flex-shrink: 0;
 }
 
+.item .modal-container .modal-content .modal-technologies .modal-technologies-wrapper::-webkit-scrollbar-thumb{
+    background-color: currentColor;
+}
+.item .modal-container .modal-content .modal-technologies .modal-technologies-wrapper::-webkit-scrollbar{
+    height:8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: block;
+}
 .item .modal-container .modal-content .modal-technologies .modal-technologies-wrapper{
     display: flex;
     flex-wrap: nowrap;
@@ -580,13 +592,18 @@
 .item .modal-container .modal-content .modal-technologies a{
     text-decoration: none;
     color:inherit;
+    padding:2px;
+    margin:5px 10px;
+    border-radius: 0.3rem;
+}
+.item .modal-container .modal-content .modal-technologies a:hover{
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .item .modal-container .modal-content .modal-technologies figure{
     display: flex;
     height: 100%;
     align-items: center;
     flex-direction: column;
-    margin:0 10px;
 }
 .item .modal-container .modal-content .modal-technologies figure img{
     max-width: 100px;
