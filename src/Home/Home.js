@@ -504,10 +504,6 @@ export default function Home(){
                                 </>
                             </Modal>    
                         </div>
-                        <div className="item">4</div>
-                        <div className="item">5</div>
-                        <div className="item">6</div>
-                        <div className="item">7</div>
                     </div>
                 </div>
                 <h3 className="closing-tag custom-tag">Portfolio</h3>
