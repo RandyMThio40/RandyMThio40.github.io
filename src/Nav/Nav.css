@@ -1,7 +1,9 @@
 .nav-bar{
-    position:sticky;
+    position:fixed;
     top:0;
-    background-color:black;
+    left:0;
+    right:0;
+    background-color:#121212;
     color:white;
     font-family: 'Roboto', sans-serif;
     font-size:1.1rem;
@@ -14,7 +16,7 @@
     justify-content: space-between;
     max-width:1440px;
     height:60px;
-    padding: 0 var(--indent);
+    padding: 40px var(--indent);
     margin:auto;
 }
 
@@ -29,7 +31,7 @@
 }
 
 .nav-bar button:focus{
-    outline: 2px solid orange;
+    /* outline: 2px solid orange; */
 }
 
 .logo{
@@ -78,6 +80,7 @@
 
     .nav-bar{
         font-size:1.5rem;
+        mix-blend-mode: normal;
     }
     .borger{
         display: flex;
@@ -104,7 +107,7 @@
         flex-direction:column;
         align-items:center;
         justify-content: space-evenly;
-        background:rgba(0, 0, 0, 0.85);
+        background:#12121200;
         transform:translate(0,-100vh);
     }
     .nav-links button{
@@ -115,6 +118,9 @@
     }
     .nav-links.active{
         animation: drop_down_nav 200ms ease forwards;
+        transition: background-color 200ms ease;
+        background:#121212;
+        
         z-index: -1;
     }
 

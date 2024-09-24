@@ -4,7 +4,9 @@ import './Home.css';
 import{ init } from 'emailjs-com';
 import emailjs from 'emailjs-com';
 import { GetTheme } from '../components/useContext/provideTheme';
-import iconic from '../images/iconic_sports_labs.png';
+import color from '../images/guessThatColor.png';
+import dog from '../images/doggo.png';
+import number from '../images/number.png';
 import my_portfolio_preview from '../images/my_portfolio_preview.png';
 import react_icon from '../images/react_icon.svg';
 import gsap_icon from '../images/gsap_icon.svg';
@@ -74,8 +76,8 @@ const Modal = ({header,website,github,children,indicators = false}) => {
                     <h5 className="closing-tag custom-tag">Technologies</h5>
                     <h5 className='custom-tag opening-tag'>Redirect</h5>
                     <div className="modal-button-container indent">
-                        <a href={website} target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Website</span></span></a>
-                        <a href={github} target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Github</span></span></a>
+                        <a href={website} rel="noreferrer" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Website</span></span></a>
+                        <a href={github} rel="noreferrer" target="_blank"><span className="closed-tag custom-tag">Link <span className="attr">to</span><span className="curly-brackets">Github</span></span></a>
                     </div>
                     <h5 className='custom-tag closing-tag'>Redirect</h5>
                 </div>
@@ -165,15 +167,6 @@ export default function Home(){
         e.target.parentNode.classList.add("active");
     }
 
-    const setIndicators = (e) => {
-        console.log(e.target.scrollWidth,e.target.scrollLeft,e.target.scrollWidth - e.target.offsetWidth,e.target.offsetWidth);
-        if(e.target.scrollWidth <= e.target.offsetWidth) return;
-        if(e.target.scrollLeft >= e.target.scrollWidth - e.target.offsetWidth) e.target.nextSibling.style.display = "none";
-        if(e.target.scrollLeft === 0) e.target.previousSibling.style.display = "none";
-        if(e.target.scrollLeft < e.target.scrollWidth - e.target.offsetWidth) e.target.nextSibling.style.display = "";
-        if(e.target.scrollLeft > 0) e.target.previousSibling.style.display = "block";
-    }
-    
     useEffect(()=>{
         const blinker  = document.getElementsByClassName("blinker")[0];
         const secondary_title  = document.getElementsByClassName("secondary-title")[0];
@@ -195,14 +188,11 @@ export default function Home(){
             }
             setCounter();
         })
-        blinker.addEventListener("animationiteration",(e)=>{
-            e.stopPropagation();
-        })
     },[])
     
     return(
-        <main className={`home-page-container ${(theme === "dark") ? "dark" : ""}`}>
-            <div className="notification"> website is still under development </div>
+        <main className={`home-page-container`}>
+            {/* <div className="notification"> website is still under development </div> */}
             <section id="home" className="hero-landing">
                 {/* <img className="symbol-bg" id="code_symbol" src={code_symbol} alt="code_symbole" /> */}
                 <svg className="symbol-bg" id="code_symbol" width="394" height="438" viewBox="0 0 394 438" xmlns="http://www.w3.org/2000/svg">
@@ -274,7 +264,7 @@ export default function Home(){
                     <path d="M563.39 0.242531L566.16 15.5208L584.561 12.1844L586.521 22.9945L568.12 26.3309L572.737 51.7946C573.172 54.1968 574.062 55.8219 575.407 56.6698C576.778 57.4799 578.825 57.6381 581.547 57.1445L592.358 55.1845L594.318 65.9946L582.498 68.1375C574.427 69.601 568.734 69.31 565.418 67.2644C562.097 65.1869 559.804 60.6568 558.538 53.6743L554.043 28.8832L540.302 31.3746L538.342 20.5645L552.083 18.0731L549.313 2.79489L563.39 0.242531Z" fill="black" fillOpacity="0.1"/>
                 </svg>
 
-                <h3 className="opening-tag custom-tag">Home</h3>
+                {/* <h3 className="opening-tag custom-tag">Home</h3> */}
                 <div className="hero-headers">
                     <h1 className="title-name indent"><span className="opening-tag">h1</span>Randy Thio<span className="closing-tag">h1</span></h1>
                     <div className="secondary-title-container indent">
@@ -289,10 +279,8 @@ export default function Home(){
                     <a tabIndex="-1" rel="noreferrer" href="https://www.linkedin.com/in/randy-thio-b9990518a" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">LinkedIn</span><span className="attr"> target</span><span className="quotation">_blank</span></a>
                     <a tabIndex="-1" rel="noreferrer" href="https://github.com/RandyMThio40" className="Link closed-tag indent custom-tag" target="_blank">Link <span className="attr"><button>to</button></span><span className="curly-brackets">Github</span><span className="attr"> target</span><span className="quotation">_blank</span></a>
                 </div>
-                <h3 className="closing-tag custom-tag">Home</h3>
             </section>
             <section id="about" className="about-container">
-                <h3 className="opening-tag custom-tag">About</h3>
                     <div className="about-me-wrapper">
                         <h3 className="about-me-title indent"><span className="opening-tag">h3</span>ABOUT ME<span className="closing-tag">h3</span></h3>
                         <div className="about-me-para indent">
@@ -305,94 +293,12 @@ export default function Home(){
                             <h3 className="closing-tag ">p</h3>
                         </div>
                     </div>
-                <h3 className="closing-tag custom-tag">About</h3>
             </section>
             <section id="portfolio" className="portfolio-container">
-                <h3 className="opening-tag custom-tag">Portfolio</h3>
                 <div className="portfolio-wrapper">
                     <aside className="comment indent curly-brackets">/* These are some projects I've worked on for the past year */</aside>
                     <div className="portfolio-content">
-                        <div className="item">
-                            <img onClick={setActive} src={pawnchain} alt="pawnchain.png" />
-                            <Modal website={"https://www.pawnchain.io/"} github={"https://github.com/moncayo/pawnchain"} indicators={true}>
-                                <>Pawnchain</>
-                                <>
-                                    A crypto website where you can bet on chess games using
-                                    your crypto currency. Connect your crypto wallets using MetaMask and 
-                                    get started. We used React as its framework, Axios, Chess.js, Ethers, Firebase, React-Redux, Chessboardjsx,
-                                    Node-fetch. Icons were created using Adobe-Photoshop.
-
-
-                                </>
-                                <> 
-                                    I implemented designs and stylized components. I made reusable components, the loader animation, and 
-                                    stylized the webpage accordingly with the other contributers.
-                                </>
-                                <>
-                                    <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={react_icon} />
-                                            <figcaption>React.js</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://axios-http.com/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={axios_icon} />
-                                            <figcaption>Axios</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://metamask.io/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={metamask_icon} />
-                                            <figcaption>MetaMask</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://chessboardjs.com/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img className="blend" src={chessboardjs_icon} />
-                                            <figcaption>Chessboardjs</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://www.npmjs.com/package/chess.js" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img className="blend" src={chessjs_icon} />
-                                            <figcaption>Chess.js</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://docs.ethers.io/v5/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={ethers_icon} />
-                                            <figcaption>Ethers</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://firebase.google.com/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={firebase_icon} />
-                                            <figcaption>Firebase</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://github.com/node-fetch" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={nodefetch_icon} />
-                                            <figcaption>Node-fetch</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://www.npmjs.com/package/react-redux" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={redux_icon} />
-                                            <figcaption>React-Redux</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://www.adobe.com/products/photoshop.html" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img className="blend" src={ps_icon} alt="ps_icon.svg"/>
-                                            <figcaption>Adobe-Photoshop</figcaption>
-                                        </figure>
-                                    </a>
-                                </>
-                            </Modal>
-
-                        </div>
+                        
                         <div className="item">
                             <img onClick={setActive} src={my_portfolio_preview} alt="my_portfolio_preview.png" />
                             <Modal website={"https://randymthio40.github.io/my-portfolio/"} github={"https://github.com/RandyMThio40/my-portfolio"}>
@@ -431,20 +337,15 @@ export default function Home(){
                             </Modal>
                         </div>
                         <div className="item">
-                            <img onClick={setActive} src={iconic} alt="iconic_sports_labs.png" />
+                            <img onClick={setActive} src={color} alt="guess_that_color.png" />
 
-                            <Modal website={"https://iconic-sports-lab.herokuapp.com/"} github={"https://github.com/StableSoftworks/IconicSports"} indicators={true}>
-                                <>Iconic_Sports_Labs</>
+                            <Modal website={"https://transcendent-kangaroo-ef2318.netlify.app/"} github={"https://github.com/RandyMThio40/GuessTheColor"} indicators={false}>
+                                <>Make a number</>
                                 <>
-                                    A website for an organization that brings communities together 
-                                    and inspires kids to think ahead and grow to realize their potential. 
-                                    We used React framework as well as other APIs such as GreenSock Animation Platform (GSAP),
-                                    Axios, React-Router, Express, Stripe, and Mailchimp_marketing. Designs and assets were drawn up using 
-                                    Adobe Photoshop.
+                                   This is a game I played in middle school. Thought I'd make a web app of it.
                                 </>
                                 <>
-                                    I worked as a Frontend developer tasked with implementing many designs
-                                    given and suggested mechanisms/animations.
+                                    I am the sole developer 
                                 </>
                                 <>
                                     <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
@@ -453,46 +354,58 @@ export default function Home(){
                                             <figcaption>React.js</figcaption>
                                         </figure>
                                     </a>
-                                    <a href="https://greensock.com/gsap/" rel="noreferrer" target="_blank">
+                                    <a href="https://github.com/" rel="noreferrer" target="_blank">
                                         <figure>
-                                            <img src={gsap_icon} />
-                                            <figcaption>GSAP</figcaption>
+                                            <img className="blend" src={github_icon} alt="github_icon.svg"/>
+                                            <figcaption>Github</figcaption>
                                         </figure>
                                     </a>
-                                    <a href="https://axios-http.com/" rel="noreferrer" target="_blank">
+                                </>
+                            </Modal>    
+                        </div>
+                        <div className="item">
+                            <img onClick={setActive} src={dog} alt="dog.png" />
+
+                            <Modal website={"https://relaxed-griffin-6404d4.netlify.app/"} github={"https://github.com/RandyMThio40/doggo"} indicators={false}>
+                                <>Make a number</>
+                                <>
+                                   I wanted to make a gallery site about dogs. I used vite with reactJS framework.
+                                </>
+                                <>
+                                    I am the sole developer 
+                                </>
+                                <>
+                                    <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
                                         <figure>
-                                            <img src={axios_icon} />
-                                            <figcaption>Axios</figcaption>
+                                            <img src={react_icon} />
+                                            <figcaption>React.js</figcaption>
                                         </figure>
                                     </a>
-                                    <a href="https://reactrouter.com/" rel="noreferrer" target="_blank">
+                                    <a href="https://github.com/" rel="noreferrer" target="_blank">
                                         <figure>
-                                            <img src={react_router_icon} />
-                                            <figcaption>React-Router</figcaption>
+                                            <img className="blend" src={github_icon} alt="github_icon.svg"/>
+                                            <figcaption>Github</figcaption>
                                         </figure>
                                     </a>
-                                    <a href="https://expressjs.com/" rel="noreferrer" target="_blank">
+                                </>
+                            </Modal>    
+                        </div>
+                        <div className="item">
+                            <img onClick={setActive} src={number} alt="make_a_number.png" />
+
+                            <Modal website={"https://marvelous-gumdrop-3eeaa8.netlify.app/"} github={"https://github.com/RandyMThio40/MakeANumberGame"} indicators={false}>
+                                <>Make a number</>
+                                <>
+                                   I wanted to make a simple game that I played as a kid.
+                                </>
+                                <>
+                                    I am the sole developer 
+                                </>
+                                <>
+                                    <a href="https://reactjs.org/" rel="noreferrer" target="_blank">
                                         <figure>
-                                            <img className='blend' src={express_icon} />
-                                            <figcaption>Express</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://stripe.com/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img src={stripe_icon} />
-                                            <figcaption>Stripe</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://mailchimp.com/integrations/" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img className="blend" src={mailchimp_icon} alt="mailchimp.svg"/>
-                                            <figcaption>Mailchimp</figcaption>
-                                        </figure>
-                                    </a>
-                                    <a href="https://www.adobe.com/products/photoshop.html" rel="noreferrer" target="_blank">
-                                        <figure>
-                                            <img className="blend" src={ps_icon} alt="ps_icon.svg"/>
-                                            <figcaption>Adobe-Photoshop</figcaption>
+                                            <img src={react_icon} />
+                                            <figcaption>React.js</figcaption>
                                         </figure>
                                     </a>
                                     <a href="https://github.com/" rel="noreferrer" target="_blank">
@@ -506,21 +419,19 @@ export default function Home(){
                         </div>
                     </div>
                 </div>
-                <h3 className="closing-tag custom-tag">Portfolio</h3>
             </section>
             <section id="contact-me" className="contact-me-container">
-                <h3 className="opening-tag custom-tag">Contact me</h3>
+                
                 <div className="contact-me-wrapper">
                     <div className="final-message-container">
-                        <span className="opening-tag">p</span>
+
                         <p className="indent">
-                            Want to get in touch with me. Send me a message. 
-                            Like the site? Let me know.
+                            Want to get in touch with me? Contact me through <a href='mailto:rendei3@aol.com'>rendei3@aol.com</a>
+                            <br/> 
+                            OR
                         </p>
-                        <span className="closing-tag">p</span>
                     </div>
                     <form ref={form} className="send-email-form" onSubmit={handleSubmit}>
-                        <h3 className="opening-tag">form</h3>
                         <div className="input-container" >
                             <input name="name" type="text" id="name" onChange={handleName} value={name} required />
                             <label htmlFor="name" >name</label>
@@ -532,11 +443,9 @@ export default function Home(){
                             <div className="label-bg">email</div>
                         </div>
                         <textarea id="message-input" name="body" placeholder="leave me a message..." rows="9" value={message} onChange={handleMessage} />
-                        <div className="closed-tag submit-butt"><input type="submit" id="submit-form" /></div>
-                        <h3 className="closing-tag">form</h3>
+                        <div className="closed-tag submit-butt"><input type="submit" value="Submit" id="submit-form" /></div>
                     </form>
                 </div>
-                <h3 className="closing-tag custom-tag">Contact me</h3>
             </section>
         </main>
     );

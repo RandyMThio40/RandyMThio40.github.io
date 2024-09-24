@@ -21,9 +21,29 @@
     --bg-form:#E1E1E1;
     --c-form-input:#000000;
 
-    --bc-equal-sign:black;
+    --bg-hero-landing:#121212;
+    --bg-header-tag:#1778EB;
+    --bg-custom-tag:#4EC9B0;
+    --bg-blinker:#4EC9B0BB;
+    --bg-attr:#9CDCFE;
+    --bg-inside-curly:#FFD700;
+    --bg-quotation:#9CDCFE;
+    --bg-comment:#689553;
+    --bg-form:#1E1E1E;
+    --c-form-input:#FFFFFF;
+    
+    --bc-input-value:white;
+    --bc-equal-sign:white;
+    --bc-stroke:rgba(128, 128, 128, 0.25);
+    --bg-fill:none;
+
+    /* --bc-equal-sign:black; */
     --bc-input:#45D1FE;
     --bc-input-focus:#00aeff;
+}
+
+.App{
+    background-color: var(--bg-hero-landing);
 }
 
 .notification{
@@ -42,10 +62,13 @@
 }
 
 .home-page-container{
+    
     max-width:1440px;
-    height:calc(100% - 60px);
+    /* height:calc(100% - 60px); */
+    padding:60px 0 0;
     margin:auto;
     background-color:var(--bg-hero-landing);
+    color:white;
     overflow-x:hidden;
     scroll-behavior: smooth;
 }
@@ -53,7 +76,8 @@
 .hero-landing{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap:5rem;
     height:max(calc(100vh - 60px),600px);
 
 }
@@ -82,6 +106,7 @@
     user-select: none;
     stroke:var(--bc-stroke);
     opacity: 0.5;
+    display: none;
 }
 
 .symbol-bg > *{
@@ -319,6 +344,7 @@
 
 .blinker::after{
     content:"/>";
+    width:max-content;
     color:grey;
     position:absolute;
     left:calc(100% + 0.125em);
@@ -420,7 +446,7 @@
     align-items: center;
     justify-content: center;
     width:100%;
-    padding:2rem 0;
+    padding:2rem var(--indent);
     margin: auto;
 }
 
@@ -663,22 +689,33 @@
     max-width:80%;
 }
 
+.final-message-container  a{
+    color:#45D1FE;
+}
+
+.final-message-container  a:hover{
+    opacity: 0.8;
+}
+
 /* //////////////////////////    form section     ////////////////////////////*/
 
 .send-email-form{
+    display: flex;
+    flex-direction: column;
     min-width:300px;
     width:90%;
-    max-width:400px;
+    max-width:700px;
     padding:0.8rem 1rem;
-    border-radius:1rem;
-    background-color:var(--bg-form);
-    box-shadow: 5px 2px 30px rgba(0, 0, 0, 0.25);
+    border-radius:0.2rem;
+    background-color:transparent;
+    /* box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.25); */
 }
 
 .submit-butt{
     font-size:var(--fs-form);
-    margin-left:0.7rem;
+    margin-right:1rem;
     cursor: pointer;
+    align-self: flex-end;
 }
 
 .submit-butt:hover{

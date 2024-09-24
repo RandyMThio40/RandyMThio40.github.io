@@ -25,6 +25,9 @@ export default function Nav(){
                 nav_links.classList.remove("active");
             }
         })
+        document.querySelector(".home-page-container").addEventListener("scroll",(e)=>{
+            console.log(e)
+        })
 
     },[])
 
@@ -50,7 +53,7 @@ export default function Nav(){
                     <span><button>About</button></span>
                     <span><button>Portfolio</button></span>
                     <span><button>Contact Me</button></span>
-                    <ToggleTheme/>
+                    {/* <ToggleTheme/> */}
 
                 </div>
             </div>

@@ -10,9 +10,8 @@
 
 .App {
   width:100vw;
-  height:100vh;
+  height:max-content;
   overflow-x:hidden;
-  overflow-y:scroll;
   background-color:#1E1E1E;
   font-family: 'Menlo regular', sans-serif;
   scroll-behavior: smooth;
